@@ -8,13 +8,13 @@ public:
 
     void attack() {
         if (attackFrameLeft <= 0) {
-            attackFrameLeft = 2;
+            attackFrameLeft = 15;
         }
     }
 
     void update() {
         if (attackFrameLeft > 0) {
-            x += 2.0f;
+            x += 6.0f;
             attackFrameLeft--;
         }
     }

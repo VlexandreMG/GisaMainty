@@ -25,7 +25,10 @@ int main() {
         if (kdown & KEY_A) {
         goose.attack();
         }
+    
+        goose.update();
 
+        
         // Frame à 60s
         C3D_FrameBegin(C3D_FRAME_SYNCDRAW);
         C2D_TargetClear(top, C2D_Color32(250, 89, 21, 255));
