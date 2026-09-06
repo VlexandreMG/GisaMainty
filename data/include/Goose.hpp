@@ -5,6 +5,7 @@ public:
     float x;
     float y;
     int attackFrameLeft = 0;
+    int health = 3;
 
     void attack() {
         if (attackFrameLeft <= 0) {
