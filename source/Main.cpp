@@ -17,7 +17,7 @@ int main() {
 
 // Création d'une oie 
     Goose goose = {200.0f,120.0f};
-    Goose other = {250.0f,120.0f};
+    Goose other = {220.0f,120.0f};
 
 // Gameloop 
     while (aptMainLoop()) {
@@ -30,11 +30,14 @@ int main() {
         }
     
         goose.update();
-
+    
         if (goose.checkCollision(other)) {
             printf("COLLISION DETECTEE !\n");
+        } else {
+            printf("Pas de collision...\n");
         }
         
+        consoleClear(); 
         // Frame à 60s
         C3D_FrameBegin(C3D_FRAME_SYNCDRAW);
         C2D_TargetClear(top, C2D_Color32(250, 89, 21, 255));
@@ -43,8 +46,12 @@ int main() {
         C2D_DrawRectSolid(goose.x, goose.y, 0.0f, goose.w, goose.h, C2D_Color32(255, 0, 0, 255));
         C2D_DrawRectSolid(other.x, other.y, 0.0f, other.w, other.h, C2D_Color32(255, 0, 0, 255));
 
-
         C3D_FrameEnd(0);
+        
+        // OBLIGATOIRE : On force le rafraîchissement de la console texte
+        gfxFlushBuffers();
+        gfxSwapBuffers();
+        gspWaitForVBlank();
     }
         
 // Libération de mémoire 
