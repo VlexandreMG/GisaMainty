@@ -6,6 +6,6 @@ public:
     float y;
 
     void attack() {
-        x += 2.0f;
+        x += 4.0f;
     }
 };

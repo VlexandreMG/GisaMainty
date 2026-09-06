@@ -20,12 +20,16 @@ int main() {
     while (aptMainLoop()) {
         hidScanInput();
         u32 kdown = hidKeysDown();
-         if (kdown & KEY_START) break;
+        if (kdown & KEY_START) break;
 
-         // Frame à 60s
-         C3D_FrameBegin(C3D_FRAME_SYNCDRAW);
-         C2D_TargetClear(top, C2D_Color32(250, 89, 21, 255));
-         C2D_SceneBegin(top);
+        if (kdown & KEY_A) {
+        goose.attack();
+        }
+
+        // Frame à 60s
+        C3D_FrameBegin(C3D_FRAME_SYNCDRAW);
+        C2D_TargetClear(top, C2D_Color32(250, 89, 21, 255));
+        C2D_SceneBegin(top);
          
         C2D_DrawRectSolid(goose.x, goose.y, 0.0f, 15.0f, 15.0f, C2D_Color32(255, 0, 0, 255));
 
