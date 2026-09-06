@@ -13,11 +13,16 @@ int main() {
 // Où je dois dessiner 
     C3D_RenderTarget* top = C2D_CreateScreenTarget(GFX_TOP, GFX_LEFT);
 
+// Création d'une oie 
+    Goose goose = {200.0f,200.0f};
+
 // Gameloop 
     while (aptMainLoop()) {
         hidScanInput();
         u32 kdown = hidKeysDown();
          if (kdown & KEY_START) break;
+
+        C2D_DrawRectSolid(goose.x, goose.y, 0.0f, 100.0f, 60.0f, C2D_Color32(255, 0, 0, 255));
         // Frame à 60s
         C3D_FrameBegin(C3D_FRAME_SYNCDRAW);
         C2D_TargetClear(top, C2D_Color32(250, 89, 21, 255));
