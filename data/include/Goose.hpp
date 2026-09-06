@@ -2,9 +2,10 @@
 
 class Goose {
 public:
-    Vector2 position;
+    float x;
+    float y;
 
     void attack() {
-        position.x += 2.0f;
+        x += 2.0f;
     }
-}
+};

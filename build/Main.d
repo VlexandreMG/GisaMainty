@@ -109,7 +109,8 @@ Main.o: /home/balou/S5/HomebrewProject/GisaMainty/source/Main.cpp \
  /opt/devkitpro/libctru/include/c2d/spritesheet.h \
  /opt/devkitpro/libctru/include/c2d/sprite.h \
  /opt/devkitpro/libctru/include/c2d/text.h \
- /opt/devkitpro/libctru/include/c2d/font.h
+ /opt/devkitpro/libctru/include/c2d/font.h \
+ /home/balou/S5/HomebrewProject/GisaMainty/source/../data/include/Goose.hpp
 /opt/devkitpro/libctru/include/3ds.h:
 /opt/devkitpro/libctru/include/3ds/types.h:
 /opt/devkitpro/libctru/include/3ds/result.h:
@@ -221,3 +222,4 @@ Main.o: /home/balou/S5/HomebrewProject/GisaMainty/source/Main.cpp \
 /opt/devkitpro/libctru/include/c2d/sprite.h:
 /opt/devkitpro/libctru/include/c2d/text.h:
 /opt/devkitpro/libctru/include/c2d/font.h:
+/home/balou/S5/HomebrewProject/GisaMainty/source/../data/include/Goose.hpp:
