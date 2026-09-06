@@ -1,6 +1,7 @@
 #include <3ds.h>
 #include <citro2d.h>
 #include "../data/include/Goose.hpp"
+#include <stdio.h>
 
 int main() {
 // Reveiller l'écran 
@@ -9,6 +10,7 @@ int main() {
     C2D_Init(C2D_DEFAULT_MAX_OBJECTS);
     C2D_Prepare();
 
+    consoleInit(GFX_BOTTOM, NULL);
 
 // Où je dois dessiner 
     C3D_RenderTarget* top = C2D_CreateScreenTarget(GFX_TOP, GFX_LEFT);
@@ -29,6 +31,9 @@ int main() {
     
         goose.update();
 
+        if (goose.checkCollision(other)) {
+            printf("COLLISION DETECTEE !\n");
+        }
         
         // Frame à 60s
         C3D_FrameBegin(C3D_FRAME_SYNCDRAW);
@@ -37,6 +42,7 @@ int main() {
          
         C2D_DrawRectSolid(goose.x, goose.y, 0.0f, goose.w, goose.h, C2D_Color32(255, 0, 0, 255));
         C2D_DrawRectSolid(other.x, other.y, 0.0f, other.w, other.h, C2D_Color32(255, 0, 0, 255));
+
 
         C3D_FrameEnd(0);
     }
