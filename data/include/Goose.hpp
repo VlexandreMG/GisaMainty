@@ -4,14 +4,18 @@ class Goose {
 public:
     float x;
     float y;
-    int cooldown = 2;
+    int attackFrameLeft = 0;
 
     void attack() {
-        while (cooldown != 0) {
-            x += 2.0f;
-            cooldown -= 1;
+        if (attackFrameLeft <= 0) {
+            attackFrameLeft = 2;
         }
+    }
 
-        cooldown = 2;
+    void update() {
+        if (attackFrameLeft > 0) {
+            x += 2.0f;
+            attackFrameLeft--;
+        }
     }
 };
