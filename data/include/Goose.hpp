@@ -36,7 +36,7 @@ public:
 
     void update() {
         if (attackFrameLeft > 0) {
-            x += 6.0f;
+            x += 1.0f;
             attackFrameLeft--;
         }
     }
