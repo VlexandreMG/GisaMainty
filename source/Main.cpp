@@ -15,7 +15,7 @@ int main() {
 
     // 3. Création des deux oies
     Goose goose = {180.0f, 120.0f};
-    Goose other = {185.0f, 120.0f}; // Oie Cible (Bleu) - Placée très proche pour tester facilement
+    Goose other = {190.0f, 120.0f}; // Oie Cible (Bleu) - Placée très proche pour tester facilement
 
     // 4. Boucle Principale de Jeu (Gameloop)
     while (aptMainLoop()) {
@@ -47,6 +47,7 @@ int main() {
         // Dessin de l'oie Cible (Bleu)
         C2D_DrawRectSolid(other.x, other.y, 0.0f, other.w, other.h, C2D_Color32(0, 0, 255, 255));
 
+        C2D_SceneBegin(bottom);
         // 2. ÉCRAN DU BAS : Témoin visuel de Collision
         if (isColliding) {
             // COLLISION ! L'écran du bas s'allume en BLANC
@@ -55,7 +56,6 @@ int main() {
             // Pas de collision : L'écran du bas reste BLEU FONCÉ
             C2D_TargetClear(bottom, C2D_Color32(20, 20, 80, 255));
         }
-        C2D_SceneBegin(bottom);
 
         C3D_FrameEnd(0);
     }

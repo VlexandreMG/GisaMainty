@@ -16,13 +16,13 @@ public:
     }
 
     bool checkCollision(const Goose& other) const {
-        float MonMurDroit = x;
-        float MonMurGauche = x+w;
+        float MonMurGauche = x;
+        float MonMurDroit = x+w;
         float MonMurHaut = y;
         float MonMurBas = y+h;
 
-        float OtMurDroit = other.x;
-        float OtMurGauche = other.x + other.w;
+        float OtMurGauche = other.x;
+        float OtMurDroit = other.x + other.w;
         float OtMurHaut = other.y;
         float OtMurBas = other.y + other.h;
 
