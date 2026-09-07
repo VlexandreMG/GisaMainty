@@ -9,11 +9,13 @@ public:
     int attackFrameLeft = 0;
     int health = 3;
     bool isAttacking = false;
+    bool hasHitTarget = false;
 
     void attack() {
         if (attackFrameLeft <= 0) {
             attackFrameLeft = 15;
             isAttacking = true;
+            hasHitTarget = false;
         }
     }
 
@@ -36,10 +38,20 @@ public:
         return CollDroite && CollGauche && CollHaut && CollBas; 
     }
 
+    void tryAttack(Goose& target) {
+        if (isAttacking && !hasHitTarget && checkCollision(target)) {
+            target.health--;
+            if (target.health < 0) target.health = 0;
+            hasHitTarget = true;
+        }
+    }
+
     void update() {
         if (attackFrameLeft > 0) {
             x += 1.0f;
             attackFrameLeft--;
+        } else {
+            isAttacking = false;
         }
     }
 };
