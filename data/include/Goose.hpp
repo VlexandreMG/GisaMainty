@@ -8,10 +8,12 @@ public:
     float h = 15.0f;
     int attackFrameLeft = 0;
     int health = 3;
+    bool isAttacking = false;
 
     void attack() {
         if (attackFrameLeft <= 0) {
             attackFrameLeft = 15;
+            isAttacking = true;
         }
     }
 
