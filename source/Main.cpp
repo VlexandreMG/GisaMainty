@@ -30,9 +30,7 @@ int main() {
 
         // --- B. UPDATE ---
         goose.update();
-        
-        // On vérifie la collision AABB entre les deux oies
-        bool isColliding = goose.checkCollision(other);
+        goose.tryAttack(other);
 
         // --- C. RENDU GRAPHIQUE ---
         C3D_FrameBegin(C3D_FRAME_SYNCDRAW);
@@ -49,7 +47,7 @@ int main() {
 
         C2D_SceneBegin(bottom);
         // 2. ÉCRAN DU BAS : Témoin visuel de Collision
-        if (isColliding) {
+        if (other.health != 3) {
             // COLLISION ! L'écran du bas s'allume en BLANC
             C2D_TargetClear(bottom, C2D_Color32(255, 255, 255, 255));
         } else {
