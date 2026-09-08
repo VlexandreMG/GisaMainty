@@ -17,4 +17,4 @@ public:
             goose.isGrounded = true;
         } 
     }
-}
+};

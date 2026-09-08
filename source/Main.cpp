@@ -1,6 +1,7 @@
 #include <3ds.h>
 #include <citro2d.h>
 #include "../data/include/Goose.hpp"
+#include "../data/system/System.hpp"
 
 int main() {
     // 1. Initialisation matérielle
@@ -16,6 +17,7 @@ int main() {
     // 3. Création des deux oies
     Goose goose = {180.0f, 120.0f};
     Goose other = {190.0f, 120.0f}; // Oie Cible (Bleu) - Placée très proche pour tester facilement
+    System system;
 
     // 4. Boucle Principale de Jeu (Gameloop)
     while (aptMainLoop()) {
@@ -23,6 +25,8 @@ int main() {
         hidScanInput();
         u32 kdown = hidKeysDown();
         if (kdown & KEY_START) break; // Quitter le jeu avec START
+
+        system.applyPhysics(goose);
 
         if (kdown & KEY_A) {
             goose.attack(); // Déclenche le déplacement de l'attaque
