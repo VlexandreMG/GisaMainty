@@ -6,10 +6,12 @@ public:
     float y;
     float w = 15.0f;
     float h = 15.0f;
+    float vy = 2.0f;
     int attackFrameLeft = 0;
     int health = 3;
     bool isAttacking = false;
     bool hasHitTarget = false;
+    bool isGrounded = false;
 
     void attack() {
         if (attackFrameLeft <= 0) {
