@@ -17,7 +17,7 @@ public:
 
     void updateAll() {
         for (Goose* goose : geese) {
-            goose.update();
+            goose->update();
         }
     }
 
@@ -27,4 +27,4 @@ public:
         }
         geese.clear();
     }
-}
+};
