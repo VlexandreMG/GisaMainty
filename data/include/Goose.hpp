@@ -17,9 +17,10 @@ public:
     bool isGrounded = false;
 
     void fly() {
-        if (!isGrounded && (gas > 0)) {
+        if (gas > 0) {
             vy -= flyForce;
             gas -= 1.0f;
+            isGrounded = false;
         }
     }
 

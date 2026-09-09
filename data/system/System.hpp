@@ -9,6 +9,10 @@ public:
 
     void applyPhysics(std::vector<Goose*> geese) {
         for (Goose* goose : geese) {
+            if (goose->isGrounded && goose->vy > 0) {
+                goose->vy = 0;
+            }
+
             goose->vy += GRAVITY;
 
             goose->y += goose->vy;
