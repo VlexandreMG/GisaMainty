@@ -67,5 +67,6 @@ int main() {
     C2D_Fini();
     C3D_Fini();
     gfxExit();
+    gm.clear();
     return 0;
 }
