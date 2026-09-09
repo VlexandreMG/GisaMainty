@@ -26,15 +26,20 @@ int main() {
         // --- A. INPUTS ---
         hidScanInput();
         u32 kdown = hidKeysDown();
+        u32 kheld = hidKeysHeld();
         if (kdown & KEY_START) break; // Quitter le jeu avec START
 
-        system.applyPhysics(gm.geese);
-
+        
+        if (kheld & KEY_B) {
+            goose->fly();
+        }
+        
         if (kdown & KEY_A) {
             goose->attack(); // Déclenche le déplacement de l'attaque
         }
-
+        
         // --- B. UPDATE ---
+        system.applyPhysics(gm.geese);
         gm.updateAll();
         // goose->tryAttack(other);
 

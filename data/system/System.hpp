@@ -17,7 +17,9 @@ public:
                 goose->y = GROUNDED_Y - goose->h;
                 goose->vy = 0;
                 goose->isGrounded = true;
-            } 
+            } else {
+                goose->isGrounded = false;
+            }
         }
     }
 };

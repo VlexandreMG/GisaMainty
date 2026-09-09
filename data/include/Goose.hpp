@@ -7,7 +7,7 @@ public:
     float w = 15.0f;
     float h = 15.0f;
     float vy = 2.0f;
-    float flyForce = 0.6f;
+    float flyForce = 0.8f;
     float gas = 5.0f;
     float maxGas = 5.0f;
     int attackFrameLeft = 0;
@@ -19,7 +19,7 @@ public:
     void fly() {
         if (!isGrounded && (gas > 0)) {
             vy -= flyForce;
-            gas--;
+            gas -= 1.0f;
         }
     }
 
@@ -67,6 +67,7 @@ public:
     void update() {
         if (attackFrameLeft > 0) {
             x += 1.0f;
+            y += vy;
             attackFrameLeft--;
         } else {
             isAttacking = false;
