@@ -18,7 +18,7 @@ int main() {
     // 3. Création des deux oies
     GooseManager gm;
     System system;
-    Goose* goose = gm.spawnGoose(180.0f, 120.0f);
+    Goose* goose = gm.spawnGoose(180.0f, 100.0f);
     gm.spawnGoose(200.0f, 120.0f);
 
     // 4. Boucle Principale de Jeu (Gameloop)
