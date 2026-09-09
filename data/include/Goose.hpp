@@ -23,6 +23,12 @@ public:
         }
     }
 
+    void reload() {
+        if (isGrounded) {
+            gas = maxGas;
+        }
+    }
+
     void attack() {
         if (attackFrameLeft <= 0) {
             attackFrameLeft = 15;
