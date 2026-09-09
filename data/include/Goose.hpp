@@ -16,6 +16,13 @@ public:
     bool hasHitTarget = false;
     bool isGrounded = false;
 
+    void fly() {
+        if (!isGrounded && (gas > 0)) {
+            vy -= flyForce;
+            gas--;
+        }
+    }
+
     void attack() {
         if (attackFrameLeft <= 0) {
             attackFrameLeft = 15;
