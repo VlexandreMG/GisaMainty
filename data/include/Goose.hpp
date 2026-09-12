@@ -92,7 +92,7 @@ public:
 
     void leftBound() {
         if ((x) <= 0.0f) {
-            x = x + w;
+            x = 0;
         }
     }
 };

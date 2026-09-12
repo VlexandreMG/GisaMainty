@@ -53,6 +53,7 @@ int main() {
         gm.updateAll();
         // goose->tryAttack(other);
         goose->rightBound();
+        goose->leftBound();
 
         printf("\x1b[1;1H"); // Replace le curseur en haut à gauche
         printf("=== DEBUG GOOSE JETPACK ===\n\n");
