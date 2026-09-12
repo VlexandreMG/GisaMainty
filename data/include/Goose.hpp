@@ -7,7 +7,7 @@ public:
     float w = 15.0f;
     float h = 15.0f;
     float vy = 2.0f;
-    float flyForce = 1.0f;
+    float flyForce = 3.0f;
     float rightForce = 1.0f;
     float leftForce = 1.0f;
     float gas = 2.0f;
@@ -93,6 +93,12 @@ public:
     void leftBound() {
         if ((x) <= 0.0f) {
             x = 0;
+        }
+    }
+
+    void upBound() {
+        if ((y) <= 0.0f) {
+            y = 0;
         }
     }
 };
