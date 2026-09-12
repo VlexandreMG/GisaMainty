@@ -7,7 +7,7 @@ public:
     float w = 15.0f;
     float h = 15.0f;
     float vy = 2.0f;
-    float flyForce = 10.0f;
+    float flyForce = 8.0f;
     float gas = 1000.0f;
     float maxGas = 1000.0f;
     int attackFrameLeft = 0;
