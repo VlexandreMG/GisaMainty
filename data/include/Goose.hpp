@@ -83,4 +83,10 @@ public:
             isAttacking = false;
         }
     }
+
+    void rightBound() {
+        if ((x+w) >= 399.0f) {
+            x = 399.0f - w;
+        }
+    }
 };
