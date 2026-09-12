@@ -20,6 +20,12 @@ public:
     bool hasHitTarget = false;
     bool isGrounded = false;
 
+    void takeHit(float direction) {
+        health--;
+        angle = 0.35f * direction;
+        hitFrameLeft = 10;
+    }
+
     void mooveRight() {
         x += rightForce;
     }
