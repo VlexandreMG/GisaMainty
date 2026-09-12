@@ -89,4 +89,10 @@ public:
             x = 399.0f - w;
         }
     }
+
+    void leftBound() {
+        if ((x) <= 0.0f) {
+            x = x + w;
+        }
+    }
 };
