@@ -68,7 +68,6 @@ public:
     void update() {
         if (attackFrameLeft > 0) {
             x += 1.0f;
-            y += vy;
             attackFrameLeft--;
         } else {
             isAttacking = false;
