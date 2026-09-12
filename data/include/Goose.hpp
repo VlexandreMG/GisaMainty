@@ -22,8 +22,8 @@ public:
 
     void takeHit(float direction) {
         health--;
-        angle = 0.35f * direction;
-        hitFrameLeft = 10;
+        angle = 1.0f * direction;
+        hitFrameLeft = 15;
     }
 
     void mooveRight() {

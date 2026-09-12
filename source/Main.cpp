@@ -22,7 +22,7 @@ int main() {
     GooseManager gm;
     System system;
     Goose* goose = gm.spawnGoose(180.0f, 100.0f);
-    gm.spawnGoose(200.0f, 120.0f);
+    Goose* other = gm.spawnGoose(200.0f, 120.0f);
 
     // 4. Boucle Principale de Jeu (Gameloop)
     while (aptMainLoop()) {
@@ -51,7 +51,7 @@ int main() {
         // --- B. UPDATE ---
         system.applyPhysics(gm.geese);
         gm.updateAll();
-        // goose->tryAttack(other);
+        goose->tryAttack(*other);
         goose->rightBound();
         goose->leftBound();
         goose->upBound();
@@ -73,7 +73,7 @@ int main() {
         
         // Dessin de l'oie Joueur (Rouge)
         for (Goose* gisa : gm.geese) {
-            C2D_DrawRectSolid(gisa->x, gisa->y, 0.0f, gisa->w, gisa->h, C2D_Color32(255, 0, 0, 255));
+            C2D_DrawRectangle(gisa->x, gisa->y, 0.0f, gisa->w, gisa->h, C2D_Color32(255, 0, 0, 255), C2D_Color32(255, 0, 0, 255), C2D_Color32(255, 0, 0, 255), C2D_Color32(255, 0, 0, 255));
         }
 
         // C2D_SceneBegin(bottom);
