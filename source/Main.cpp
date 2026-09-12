@@ -32,7 +32,14 @@ int main() {
         u32 kheld = hidKeysHeld();
         if (kdown & KEY_START) break; // Quitter le jeu avec START
 
-        
+        if (kheld & KEY_DRIGHT) {
+            goose->mooveRight();
+        }
+
+        if (kheld & KEY_DLEFT) {
+            goose->mooveLeft();
+        }
+
         if (kheld & KEY_B) {
             goose->fly();
         }
