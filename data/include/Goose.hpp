@@ -8,6 +8,8 @@ public:
     float h = 15.0f;
     float vy = 2.0f;
     float flyForce = 1.0f;
+    float rightForce = 1.0f;
+    float leftForce = 1.0f;
     float gas = 2.0f;
     float maxGas = 2.0f;
     int attackFrameLeft = 0;
