@@ -12,6 +12,8 @@ public:
     float leftForce = 1.0f;
     float gas = 2.0f;
     float maxGas = 2.0f;
+    float angle = 0.0f;
+    int hitFrameLeft = 0;
     int attackFrameLeft = 0;
     int health = 3;
     bool isAttacking = false;
