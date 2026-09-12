@@ -78,7 +78,7 @@ public:
     void tryAttack(Goose& target) {
         if (isAttacking && !hasHitTarget && checkCollision(target)) {
             float direction = (x < target.x) ? 1.0f : 1.0f;
-            target.takeHit(direction;)
+            target.takeHit(direction);
             if (target.health < 0) target.health = 0;
             hasHitTarget = true;
         }
