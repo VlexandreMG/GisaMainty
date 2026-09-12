@@ -18,6 +18,14 @@ public:
     bool hasHitTarget = false;
     bool isGrounded = false;
 
+    void mooveRight() {
+        x += rightForce;
+    }
+
+    void mooveLeft() {
+        x -= rightForce;
+    }
+
     void fly() {
         if (gas > 0) {
             vy -= flyForce;
