@@ -90,6 +90,13 @@ public:
         } else {
             isAttacking = false;
         }
+
+        if (hitFrameLeft > 0) {
+            hitFrameLeft--;
+            if (hitFrameLeft == 0) {
+                angle = 0;
+            }
+        }
     }
 
     void rightBound() {
