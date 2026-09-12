@@ -31,15 +31,15 @@ int main() {
         u32 kdown = hidKeysDown();
         u32 kheld = hidKeysHeld();
         if (kdown & KEY_START) break; // Quitter le jeu avec START
-
+        
         if (kheld & KEY_DRIGHT) {
             goose->mooveRight();
         }
-
+        
         if (kheld & KEY_DLEFT) {
             goose->mooveLeft();
         }
-
+        
         if (kheld & KEY_B) {
             goose->fly();
         }
@@ -53,7 +53,7 @@ int main() {
         gm.updateAll();
         // goose->tryAttack(other);
         goose->rightBound();
-        
+
         printf("\x1b[1;1H"); // Replace le curseur en haut à gauche
         printf("=== DEBUG GOOSE JETPACK ===\n\n");
         printf("Position Y   : %f\n", goose->y);
