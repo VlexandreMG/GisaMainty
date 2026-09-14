@@ -11,6 +11,7 @@ int main() {
     C3D_Init(C3D_DEFAULT_CMDBUF_SIZE);
     C2D_Init(C2D_DEFAULT_MAX_OBJECTS);
     C2D_Prepare();
+    romfsInit();
 
     consoleInit(GFX_BOTTOM, NULL);
 
@@ -98,10 +99,11 @@ int main() {
     }
 
     // 5. Nettoyage de la mémoire avant de quitter
+    gm.clear();
+    C2D_SpriteSheetFree(sheet);
+    romfsExit();
     C2D_Fini();
     C3D_Fini();
     gfxExit();
-    gm.clear();
-    C2D_SpriteSheetFree(sheet);
     return 0;
 }
