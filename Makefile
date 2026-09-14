@@ -55,7 +55,7 @@ export LDFLAGS  := $(ARCH) -specs=3dsx.specs $(LIBPATHS) -Wl,-Map,$(OUTPUT).map
 
 # Intégration automatique du dossier RomFS s'il existe
 ifneq ($(wildcard $(ROMFS)),)
-    export APP_ROMFS := $(CURDIR)/$(ROMFS)
+    export ROMFS_DIR := $(CURDIR)/$(ROMFS)
 endif
 
 .PHONY: $(BUILD) clean all
@@ -79,8 +79,15 @@ DEPENDS := $(OFILES:.o=.d)
 
 all: $(OUTPUT).3dsx
 
-# Génération automatique 3DSX / ELF par les règles de 3ds_rules
-$(OUTPUT).3dsx: $(OUTPUT).elf
+# Génération du fichier SMDH (Métadonnées de l'application)
+$(OUTPUT).smdh:
+	@echo "Génération des métadonnées SMDH..."
+	@smdhtool --create "$(TARGET)" "GisaMainty Homebrew Game" "Developer" $(DEVKITPRO)/libctru/default_icon.png $@
+
+# Génération du 3DSX avec inclusion de RomFS et du fichier SMDH
+$(OUTPUT).3dsx: $(OUTPUT).elf $(OUTPUT).smdh
+	@echo "Packaging 3DSX avec RomFS et SMDH..."
+	@3dsxtool $< $@ --smdh=$(OUTPUT).smdh $(if $(ROMFS_DIR),--romfs=$(ROMFS_DIR))
 
 $(OUTPUT).elf: $(OFILES)
 	@echo "Linking $(notdir $@)..."
