@@ -11,12 +11,9 @@ int main() {
     C3D_Init(C3D_DEFAULT_CMDBUF_SIZE);
     C2D_Init(C2D_DEFAULT_MAX_OBJECTS);
     C2D_Prepare();
-    Result romfs_res = romfsInit();
+    romfsInit();
 
     consoleInit(GFX_BOTTOM, NULL);
-
-    printf("\x1b[1;1H=== DEBUG CHARGEMENT SPRITE ===\n\n");
-    printf("Resultat romfsInit() : 0x%08X\n", (unsigned int)romfs_res);
 
     // 2. Définition des cibles de rendu (Haut et Bas via Citro2D)
     C3D_RenderTarget* top = C2D_CreateScreenTarget(GFX_TOP, GFX_LEFT);
@@ -25,32 +22,19 @@ int main() {
     // Charger la feuille de sprite 
     C2D_SpriteSheet sheet = C2D_SpriteSheetLoad("romfs:/gfx/Goose-walk-right.t3x");
 
-    if (!sheet) {
-        printf("SpriteSheet : ERREUR (NULL)\n");
-    } else {
-        printf("SpriteSheet : SUCCES !\n");
-        size_t count = C2D_SpriteSheetCount(sheet);
-        printf("Nombre d'images    : %u\n", (unsigned int)count);
-    }
+    // // Variable pour switch d'image 
+    // int animFrame = 0;
+    // // Compteur de 8 images
+    // int frameCounter = 0;
+
+    // frameCounter++;
+    // if (frameCounter >= 8) {
+    //     animFrame = (animFrame + 1) % 4;
+    //     frameCounter = 0;
+    // }
 
     // Cadrer sur le frame 1 
     C2D_Image img = C2D_SpriteSheetGetImage(sheet, 0);
-
-    // Définir la frame courante (0 à 3)
-    int currentFrame = 0; // à faire évoluer dans la boucle (0, 1, 2, 3)
-
-    // Créer une image spécifique pour la frame
-    C2D_Image frameImg = img;
-    Tex3DS_SubTexture subtex;
-
-    subtex.width = 32;
-    subtex.height = 32;
-    subtex.left = (float)(currentFrame * 32) / 128.0f;
-    subtex.right = (float)((currentFrame + 1) * 32) / 128.0f;
-    subtex.top = 0.0f;
-    subtex.bottom = 1.0f;
-
-    frameImg.subtex = &subtex;
 
     // 3. Création des deux oies
     GooseManager gm;
@@ -108,7 +92,7 @@ int main() {
         // Dessin de l'oie Joueur (Rouge)
         for (Goose* gisa : gm.geese) {
             // C2D_DrawRectangle(gisa->x, gisa->y, 0.0f, gisa->w, gisa->h, C2D_Color32(255, 0, 0, 255), C2D_Color32(255, 0, 0, 255), C2D_Color32(255, 0, 0, 255), C2D_Color32(255, 0, 0, 255));
-            C2D_DrawImageAt(frameImg, gisa->x, gisa->y, 0.9f, NULL, 1.0f, 1.0f);
+            C2D_DrawImageAt(img, gisa->x, gisa->y, 0.9f, NULL, 1.0f, 1.0f);
         }
 
         // C2D_SceneBegin(bottom);
