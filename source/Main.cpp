@@ -82,7 +82,7 @@ int main() {
         // Dessin de l'oie Joueur (Rouge)
         for (Goose* gisa : gm.geese) {
             // C2D_DrawRectangle(gisa->x, gisa->y, 0.0f, gisa->w, gisa->h, C2D_Color32(255, 0, 0, 255), C2D_Color32(255, 0, 0, 255), C2D_Color32(255, 0, 0, 255), C2D_Color32(255, 0, 0, 255));
-            C2D_DrawImageAt(img, gisa->x, gisa->y, 0.5f, NULL, 1.0f, 1.0f);
+            C2D_DrawImageAt(img, gisa->x, gisa->y, 0.9f, NULL, 1.0f, 1.0f);
         }
 
         // C2D_SceneBegin(bottom);
