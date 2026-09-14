@@ -21,20 +21,11 @@ int main() {
 
     // Charger la feuille de sprite 
     C2D_SpriteSheet sheet = C2D_SpriteSheetLoad("romfs:/gfx/Goose-walk-right.t3x");
-
-    // // Variable pour switch d'image 
-    // int animFrame = 0;
-    // // Compteur de 8 images
-    // int frameCounter = 0;
-
-    // frameCounter++;
-    // if (frameCounter >= 8) {
-    //     animFrame = (animFrame + 1) % 4;
-    //     frameCounter = 0;
-    // }
-
-    // Cadrer sur le frame 1 
-    C2D_Image img = C2D_SpriteSheetGetImage(sheet, 0);
+    
+    // Variable pour switch d'image 
+        int animFrame = 0;
+    // Compteur de 8 images
+        int frameCounter = 0;
 
     // 3. Création des deux oies
     GooseManager gm;
@@ -52,7 +43,14 @@ int main() {
         
         if (kheld & KEY_DRIGHT) {
             goose->mooveRight();
+
+            frameCounter++;
+            if (frameCounter >= 8) {
+            animFrame = (animFrame + 1) % 4;
+            frameCounter = 0;
+            }
         }
+        C2D_Image newImg = C2D_SpriteSheetGetImage(sheet, animFrame);
         
         if (kheld & KEY_DLEFT) {
             goose->mooveLeft();
@@ -92,7 +90,7 @@ int main() {
         // Dessin de l'oie Joueur (Rouge)
         for (Goose* gisa : gm.geese) {
             // C2D_DrawRectangle(gisa->x, gisa->y, 0.0f, gisa->w, gisa->h, C2D_Color32(255, 0, 0, 255), C2D_Color32(255, 0, 0, 255), C2D_Color32(255, 0, 0, 255), C2D_Color32(255, 0, 0, 255));
-            C2D_DrawImageAt(img, gisa->x, gisa->y, 0.9f, NULL, 1.0f, 1.0f);
+            C2D_DrawImageAt(newImg, gisa->x, gisa->y, 0.9f, NULL, 1.0f, 1.0f);
         }
 
         // C2D_SceneBegin(bottom);
