@@ -11,9 +11,12 @@ int main() {
     C3D_Init(C3D_DEFAULT_CMDBUF_SIZE);
     C2D_Init(C2D_DEFAULT_MAX_OBJECTS);
     C2D_Prepare();
-    romfsInit();
+    Result romfs_res = romfsInit();
 
     consoleInit(GFX_BOTTOM, NULL);
+
+    printf("\x1b[1;1H=== DEBUG CHARGEMENT SPRITE ===\n\n");
+    printf("Resultat romfsInit() : 0x%08X\n", (unsigned int)romfs_res);
 
     // 2. Définition des cibles de rendu (Haut et Bas via Citro2D)
     C3D_RenderTarget* top = C2D_CreateScreenTarget(GFX_TOP, GFX_LEFT);
@@ -21,6 +24,14 @@ int main() {
 
     // Charger la feuille de sprite 
     C2D_SpriteSheet sheet = C2D_SpriteSheetLoad("romfs:/gfx/Goose-walk-right.t3x");
+
+    if (!sheet) {
+        printf("SpriteSheet : ERREUR (NULL)\n");
+    } else {
+        printf("SpriteSheet : SUCCES !\n");
+        size_t count = C2D_SpriteSheetCount(sheet);
+        printf("Nombre d'images    : %u\n", (unsigned int)count);
+    }
 
     // Cadrer sur le frame 1 
     C2D_Image img = C2D_SpriteSheetGetImage(sheet, 0);
@@ -64,13 +75,13 @@ int main() {
         goose->leftBound();
         goose->upBound();
 
-        printf("\x1b[1;1H"); // Replace le curseur en haut à gauche
-        printf("=== DEBUG GOOSE JETPACK ===\n\n");
-        printf("Position Y   : %f\n", goose->y);
-        printf("Vitesse VY   : %f\n", goose->vy);
-        printf("Gaz Restant  : %f\n", goose->gas);
-        printf("isGrounded   : %s\n", goose->isGrounded ? "TRUE " : "FALSE");
-        printf("Bouton B     : %s\n", (kheld & KEY_B) ? "APPUYE " : "RELACHE");
+        // printf("\x1b[1;1H"); // Replace le curseur en haut à gauche
+        // printf("=== DEBUG GOOSE JETPACK ===\n\n");
+        // printf("Position Y   : %f\n", goose->y);
+        // printf("Vitesse VY   : %f\n", goose->vy);
+        // printf("Gaz Restant  : %f\n", goose->gas);
+        // printf("isGrounded   : %s\n", goose->isGrounded ? "TRUE " : "FALSE");
+        // printf("Bouton B     : %s\n", (kheld & KEY_B) ? "APPUYE " : "RELACHE");
 
         // --- C. RENDU GRAPHIQUE ---
         C3D_FrameBegin(C3D_FRAME_SYNCDRAW);
