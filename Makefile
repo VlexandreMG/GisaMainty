@@ -13,8 +13,9 @@ include $(DEVKITARM)/3ds_rules
 TARGET          := GisaMainty
 BUILD           := build
 SOURCES         := source
-INCLUDES        := include
-GRAPHICS        := gfx
+INCLUDES        := include include/manager include/system
+GRAPHICS        := data/assets/gfx
+ROMFS           := romfs
 
 # ---------------------------------------------------------------------------------
 # Drapeaux de compilation et dépendances
@@ -45,12 +46,17 @@ export INCLUDE  := $(foreach dir,$(INCLUDES),-I$(CURDIR)/$(dir)) \
                    $(foreach dir,$(LIBDIRS),-I$(dir)/include) \
                    -I$(CURDIR)/$(BUILD)
 
-# INCLURE $(INCLUDE) DIRECTEMENT DANS CFLAGS/CXXFLAGS
+# Drapeaux de compilation C/C++
 export CFLAGS   := -g -Wall -O2 -mword-relocations $(ARCH) $(INCLUDE)
 export CXXFLAGS := $(CFLAGS) -fno-rtti -fno-exceptions
 
-# LDFLAGS contient à la fois l'architecture et les specs 3DSX pour la mémoire / _start
+# LDFLAGS contient à la fois l'architecture et les specs 3DSX
 export LDFLAGS  := $(ARCH) -specs=3dsx.specs $(LIBPATHS) -Wl,-Map,$(OUTPUT).map
+
+# Intégration automatique du dossier RomFS s'il existe
+ifneq ($(wildcard $(ROMFS)),)
+    export APP_ROMFS := $(CURDIR)/$(ROMFS)
+endif
 
 .PHONY: $(BUILD) clean all
 
