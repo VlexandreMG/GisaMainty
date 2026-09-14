@@ -18,6 +18,13 @@ int main() {
     C3D_RenderTarget* top = C2D_CreateScreenTarget(GFX_TOP, GFX_LEFT);
     // C3D_RenderTarget* bottom = C2D_CreateScreenTarget(GFX_BOTTOM, GFX_LEFT);
 
+    // Charger la feuille de sprite 
+    C2D_SpriteSheet sheet = C2D_SpriteSheetLoad("romfs:/gfx/Goose-walk-right.t3x");
+
+    // Cadrer sur le frame 1 
+    C2D_Image img = C2D_SpriteSheetGetImage(sheet, 0);
+
+
     // 3. Création des deux oies
     GooseManager gm;
     System system;
