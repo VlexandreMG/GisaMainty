@@ -95,8 +95,14 @@ int main() {
         // printf("Bouton B     : %s\n", (kheld & KEY_B) ? "APPUYE " : "RELACHE");
 
         // --- C. RENDU GRAPHIQUE ---
-        
+
         C3D_FrameBegin(C3D_FRAME_SYNCDRAW);
+
+        // Choisir le sheet à utiliser 
+        C2D_SpriteSheet currentSheet = facingRight ? sheetRight : sheetLeft;
+
+        // L'image à utiliser 
+        C2D_Image newImg = C2D_SpriteSheetGetImage(currentSheet, animFrame);
 
         // 1. ÉCRAN DU HAUT : Dessin des Oies
         C2D_TargetClear(top, C2D_Color32(250, 89, 21, 255)); // Fond Orange
@@ -105,7 +111,7 @@ int main() {
         // Dessin de l'oie Joueur (Rouge)
         for (Goose* gisa : gm.geese) {
             // C2D_DrawRectangle(gisa->x, gisa->y, 0.0f, gisa->w, gisa->h, C2D_Color32(255, 0, 0, 255), C2D_Color32(255, 0, 0, 255), C2D_Color32(255, 0, 0, 255), C2D_Color32(255, 0, 0, 255));
-            C2D_DrawImageAt(imgAt, gisa->x, gisa->y, 0.9f, NULL, 1.0f, 1.0f);
+            C2D_DrawImageAt(newImg, gisa->x, gisa->y, 0.9f, NULL, 1.0f, 1.0f);
         }
 
         // C2D_SceneBegin(bottom);
