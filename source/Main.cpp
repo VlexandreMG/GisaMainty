@@ -27,6 +27,10 @@ int main() {
         int animFrame = 0;
     // Compteur de 8 images
         int frameCounter = 0;
+    // De la droite ou de la gauche 
+        bool facingRight = true;
+    // Ne bouge pas 
+        bool isMooving = false;
 
     // 3. Création des deux oies
     GooseManager gm;
@@ -44,25 +48,21 @@ int main() {
         
         if (kheld & KEY_DRIGHT) {
             goose->mooveRight();
-
-            frameCounter++;
-            if (frameCounter >= 8) {
-            animFrame = (animFrame + 1) % 4;
-            frameCounter = 0;
-            }
+            isMooving = true;
+            facingRight = true;
         }
-        C2D_Image newImg = C2D_SpriteSheetGetImage(sheetRight, animFrame);
+        // C2D_Image newImg = C2D_SpriteSheetGetImage(sheetRight, animFrame);
         
         if (kheld & KEY_DLEFT) {
             goose->mooveLeft();
-
-            frameCounter++;
-            if (frameCounter >= 8) {
-            animFrame = (animFrame + 1) % 4;
-            frameCounter = 0;
-            }
+            isMooving = true;
+            facingRight = false;
+            // frameCounter++;
+            // if (frameCounter >= 8) {
+            // animFrame = (animFrame + 1) % 4;
+            // frameCounter = 0;
+            // }
         }
-        C2D_Image newImg = C2D_SpriteSheetGetImage(sheetLeft, animFrame);
         
         if (kheld & KEY_B) {
             goose->fly();
@@ -80,6 +80,12 @@ int main() {
         goose->leftBound();
         goose->upBound();
 
+        frameCounter++;
+        if (frameCounter >= 8) {
+        animFrame = (animFrame + 1) % 4;
+        frameCounter = 0;
+        }
+
         // printf("\x1b[1;1H"); // Replace le curseur en haut à gauche
         // printf("=== DEBUG GOOSE JETPACK ===\n\n");
         // printf("Position Y   : %f\n", goose->y);
@@ -89,6 +95,7 @@ int main() {
         // printf("Bouton B     : %s\n", (kheld & KEY_B) ? "APPUYE " : "RELACHE");
 
         // --- C. RENDU GRAPHIQUE ---
+        
         C3D_FrameBegin(C3D_FRAME_SYNCDRAW);
 
         // 1. ÉCRAN DU HAUT : Dessin des Oies
@@ -98,7 +105,7 @@ int main() {
         // Dessin de l'oie Joueur (Rouge)
         for (Goose* gisa : gm.geese) {
             // C2D_DrawRectangle(gisa->x, gisa->y, 0.0f, gisa->w, gisa->h, C2D_Color32(255, 0, 0, 255), C2D_Color32(255, 0, 0, 255), C2D_Color32(255, 0, 0, 255), C2D_Color32(255, 0, 0, 255));
-            C2D_DrawImageAt(newImg, gisa->x, gisa->y, 0.9f, NULL, 1.0f, 1.0f);
+            C2D_DrawImageAt(imgAt, gisa->x, gisa->y, 0.9f, NULL, 1.0f, 1.0f);
         }
 
         // C2D_SceneBegin(bottom);
