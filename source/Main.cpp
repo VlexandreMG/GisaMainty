@@ -20,7 +20,8 @@ int main() {
     // C3D_RenderTarget* bottom = C2D_CreateScreenTarget(GFX_BOTTOM, GFX_LEFT);
 
     // Charger la feuille de sprite 
-    C2D_SpriteSheet sheet = C2D_SpriteSheetLoad("romfs:/gfx/Goose-walk-right.t3x");
+    C2D_SpriteSheet sheetRight = C2D_SpriteSheetLoad("romfs:/gfx/Goose-walk-right.t3x");
+    C2D_SpriteSheet sheetLeft = C2D_SpriteSheetLoad("romfs:/gfx/Goose-walk-left.t3x");
     
     // Variable pour switch d'image 
         int animFrame = 0;
@@ -50,11 +51,18 @@ int main() {
             frameCounter = 0;
             }
         }
-        C2D_Image newImg = C2D_SpriteSheetGetImage(sheet, animFrame);
+        C2D_Image newImg = C2D_SpriteSheetGetImage(sheetRight, animFrame);
         
         if (kheld & KEY_DLEFT) {
             goose->mooveLeft();
+
+            frameCounter++;
+            if (frameCounter >= 8) {
+            animFrame = (animFrame + 1) % 4;
+            frameCounter = 0;
+            }
         }
+        C2D_Image newImg = C2D_SpriteSheetGetImage(sheetLeft, animFrame);
         
         if (kheld & KEY_B) {
             goose->fly();
@@ -108,7 +116,8 @@ int main() {
 
     // 5. Nettoyage de la mémoire avant de quitter
     gm.clear();
-    C2D_SpriteSheetFree(sheet);
+    C2D_SpriteSheetFree(sheetLeft);
+    C2D_SpriteSheetFree(sheetRight);
     romfsExit();
     C2D_Fini();
     C3D_Fini();
