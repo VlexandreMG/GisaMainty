@@ -50,6 +50,8 @@ int main() {
             goose->mooveRight();
             isMooving = true;
             facingRight = true;
+        } else {
+            isMooving = false;
         }
         // C2D_Image newImg = C2D_SpriteSheetGetImage(sheetRight, animFrame);
         
@@ -62,6 +64,8 @@ int main() {
             // animFrame = (animFrame + 1) % 4;
             // frameCounter = 0;
             // }
+        } else {
+            isMooving = false;
         }
         
         if (kheld & KEY_B) {
@@ -80,10 +84,16 @@ int main() {
         goose->leftBound();
         goose->upBound();
 
-        frameCounter++;
-        if (frameCounter >= 8) {
-        animFrame = (animFrame + 1) % 4;
-        frameCounter = 0;
+
+        if (isMooving) {
+            frameCounter++;
+            if (frameCounter >= 8) {
+            animFrame = (animFrame + 1) % 4;
+            frameCounter = 0;
+            }
+        } else {
+            animFrame = 0;
+            frameCounter = 0;
         }
 
         // printf("\x1b[1;1H"); // Replace le curseur en haut à gauche
