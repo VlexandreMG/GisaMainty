@@ -68,6 +68,7 @@ int main() {
         
         if (kdown & KEY_A) {
             goose->attack(); // Déclenche le déplacement de l'attaque
+            isAttacking = true;
         }
         
         // --- B. UPDATE ---
