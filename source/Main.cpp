@@ -29,15 +29,14 @@ int main() {
         int frameCounter = 0;
     // De la droite ou de la gauche 
         bool facingRight = true;
-    // Ne bouge pas 
-        bool isMooving = false;
-
+     
+    
     // 3. Création des deux oies
     GooseManager gm;
     System system;
     Goose* goose = gm.spawnGoose(180.0f, 100.0f);
     Goose* other = gm.spawnGoose(200.0f, 120.0f);
-
+    
     // 4. Boucle Principale de Jeu (Gameloop)
     while (aptMainLoop()) {
         // --- A. INPUTS ---
@@ -45,7 +44,9 @@ int main() {
         u32 kdown = hidKeysDown();
         u32 kheld = hidKeysHeld();
         if (kdown & KEY_START) break; // Quitter le jeu avec START
-        
+        // Ne bouge pas     
+        bool isMooving = false;
+
         if (kheld & KEY_DRIGHT) {
             goose->mooveRight();
             isMooving = true;
