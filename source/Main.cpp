@@ -22,6 +22,7 @@ int main() {
     // Charger la feuille de sprite 
     C2D_SpriteSheet sheetRight = C2D_SpriteSheetLoad("romfs:/gfx/Goose-walk-right.t3x");
     C2D_SpriteSheet sheetLeft = C2D_SpriteSheetLoad("romfs:/gfx/Goose-walk-left.t3x");
+    C2D_SpriteSheet sheetAttackRight = C2D_SpriteSheetLoad("romfs:/gfx/Goose-attack-right.t3x");
     
     // Variable pour switch d'image 
         int animFrame = 0;
@@ -44,8 +45,12 @@ int main() {
         u32 kdown = hidKeysDown();
         u32 kheld = hidKeysHeld();
         if (kdown & KEY_START) break; // Quitter le jeu avec START
+
         // Ne bouge pas     
         bool isMooving = false;
+
+        // N'attaque pas 
+        bool isAttacking = false;
 
         if (kheld & KEY_DRIGHT) {
             goose->mooveRight();
