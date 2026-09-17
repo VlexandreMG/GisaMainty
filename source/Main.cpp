@@ -50,23 +50,11 @@ int main() {
             goose->mooveRight();
             isMooving = true;
             facingRight = true;
-        } else {
-            isMooving = false;
-        }
-        // C2D_Image newImg = C2D_SpriteSheetGetImage(sheetRight, animFrame);
-        
-        if (kheld & KEY_DLEFT) {
+        } else if (kheld & KEY_DLEFT) { 
             goose->mooveLeft();
             isMooving = true;
             facingRight = false;
-            // frameCounter++;
-            // if (frameCounter >= 8) {
-            // animFrame = (animFrame + 1) % 4;
-            // frameCounter = 0;
-            // }
-        } else {
-            isMooving = false;
-        }
+        }   
         
         if (kheld & KEY_B) {
             goose->fly();
