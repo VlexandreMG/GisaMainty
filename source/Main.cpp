@@ -80,16 +80,7 @@ int main() {
 
         // ETO
 
-        if (isMooving) {
-            frameCounter++;
-            if (frameCounter >= 8) {
-            animFrame = (animFrame + 1) % 4;
-            frameCounter = 0;
-            }
-        } else {
-            animFrame = 0;
-            frameCounter = 0;
-        }
+        
 
         // 
 
