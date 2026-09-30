@@ -24,14 +24,13 @@ int main() {
     C2D_SpriteSheet sheetLeft = C2D_SpriteSheetLoad("romfs:/gfx/Goose-walk-left.t3x");
     C2D_SpriteSheet sheetAttackRight = C2D_SpriteSheetLoad("romfs:/gfx/Goose-attack-right.t3x");
     
-    // Variable pour switch d'image 
-        int animFrame = 0;
-    // Compteur de 8 images
-        int frameCounter = 0;
+    //  ETO
+
     // De la droite ou de la gauche 
         bool facingRight = true;
+
+    // 
      
-    
     // 3. Création des deux oies
     GooseManager gm;
     System system;
@@ -79,6 +78,7 @@ int main() {
         goose->leftBound();
         goose->upBound();
 
+        // ETO
 
         if (isMooving) {
             frameCounter++;
@@ -90,6 +90,8 @@ int main() {
             animFrame = 0;
             frameCounter = 0;
         }
+
+        // 
 
         // printf("\x1b[1;1H"); // Replace le curseur en haut à gauche
         // printf("=== DEBUG GOOSE JETPACK ===\n\n");
