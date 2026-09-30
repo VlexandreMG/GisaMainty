@@ -7,7 +7,7 @@ public:
 
     AnimationManager();
 
-    void updateAnimation(Animation anim) {
+    void updateAnimation(Animation& anim) {
         tickTimer++
 
         if (tickTimer >= anim.tickIncrementer) {

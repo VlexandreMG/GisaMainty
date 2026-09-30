@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include "../data/include/Goose.hpp"
 #include "../data/manager/GooseManager.hpp"
+#include "../data/manager/AnimationManager.hpp"
 #include "../data/system/System.hpp"
 
 int main() {
@@ -101,7 +102,7 @@ int main() {
 
         // L'image à utiliser 
 
-        
+
         // 1. ÉCRAN DU HAUT : Dessin des Oies
         C2D_TargetClear(top, C2D_Color32(250, 89, 21, 255)); // Fond Orange
         C2D_SceneBegin(top);
