@@ -100,8 +100,8 @@ int main() {
         C2D_SpriteSheet currentSheet = facingRight ? sheetRight : sheetLeft;
 
         // L'image à utiliser 
-        C2D_Image newImg = C2D_SpriteSheetGetImage(currentSheet, animFrame);
 
+        
         // 1. ÉCRAN DU HAUT : Dessin des Oies
         C2D_TargetClear(top, C2D_Color32(250, 89, 21, 255)); // Fond Orange
         C2D_SceneBegin(top);
