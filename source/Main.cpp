@@ -32,6 +32,12 @@ int main() {
 
     // 
      
+    // Animation d'attaque 
+    Animation attack;
+    attack.totalFrames = 4;  
+    attack.startFrame =1 ;  
+    attack.tickIncrementer = 6;  
+
     // 3. Création des deux oies
     GooseManager gm;
     System system;

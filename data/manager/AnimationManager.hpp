@@ -7,8 +7,8 @@ public:
 
     AnimationManager();
 
-    void updateAnimation(Animation& anim) {
-        tickTimer++
+    void updateAnimation(const Animation& anim) {
+        tickTimer++;
 
         if (tickTimer >= anim.tickIncrementer) {
             frameCounter++;
