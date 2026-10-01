@@ -132,7 +132,7 @@ int main() {
         //     C2D_TargetClear(bottom, C2D_Color32(20, 20, 80, 255));
         // }
 
-        C3D_FrameEnd(0);
+        C3D_Fr0ameEnd(0);
     }
 
     // 5. Nettoyage de la mémoire avant de quitter
