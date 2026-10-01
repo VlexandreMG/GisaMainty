@@ -133,7 +133,7 @@ int main() {
         // for (Goose* gisa : gm.geese) {
         //     // C2D_DrawRectangle(gisa->x, gisa->y, 0.0f, gisa->w, gisa->h, C2D_Color32(255, 0, 0, 255), C2D_Color32(255, 0, 0, 255), C2D_Color32(255, 0, 0, 255), C2D_Color32(255, 0, 0, 255));
         //     // C2D_DrawImageAt(newImg, gisa->x, gisa->y, 0.9f, NULL, 1.0f, 1.0f);
-        //     aM.drawImage(sheetRight , walk, gisa->x , gisa->y);
+        //     aM.drawImageWithAnimation(sheetRight , walk, gisa->x , gisa->y);
         // }
 
         // C2D_SceneBegin(bottom);
