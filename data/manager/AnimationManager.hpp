@@ -6,7 +6,7 @@ public:
     int frameCounter = 0;
     int tickTimer = 0;
 
-    AnimationManager();
+    AnimationManager() : frameCounter(0), tickTimer(0) {}
 
     void updateAnimation(const Animation& anim) {
         tickTimer++;

@@ -28,7 +28,7 @@ int main() {
     //  ETO
 
     // De la droite ou de la gauche 
-        bool facingRight = true;
+        // bool facingRight = true;
 
     // 
      
@@ -36,7 +36,13 @@ int main() {
     Animation attack;
     attack.totalFrames = 4;  
     attack.startFrame =1 ;  
-    attack.tickIncrementer = 6; 
+    attack.tickIncrementer = 4; 
+
+    // Animation de marche 
+    Animation walk;
+    walk.totalFrames = 4;  
+    walk.startFrame =1 ;  
+    walk.tickIncrementer = 8; 
     
     // Animation Manager 
     AnimationManager aM;
@@ -56,19 +62,19 @@ int main() {
         if (kdown & KEY_START) break; // Quitter le jeu avec START
 
         // Ne bouge pas     
-        bool isMooving = false;
+        // bool isMooving = false;
 
         // N'attaque pas 
-        bool isAttacking = false;
+        // bool isAttacking = false;
 
         if (kheld & KEY_DRIGHT) {
             goose->mooveRight();
-            isMooving = true;
-            facingRight = true;
+            // isMooving = true;
+            // facingRight = true;
         } else if (kheld & KEY_DLEFT) { 
             goose->mooveLeft();
-            isMooving = true;
-            facingRight = false;
+            // isMooving = true;
+            // facingRight = false;
         }   
         
         if (kheld & KEY_B) {
@@ -77,8 +83,9 @@ int main() {
         
         if (kdown & KEY_A) {
             goose->attack(); // Déclenche le déplacement de l'attaque
-            isAttacking = true;
+            // isAttacking = true;
             aM.updateAnimation(attack);
+            aM.drawImage(sheetAttackRight, attack, goose->x, goose->y);
         }
         
         // --- B. UPDATE ---
@@ -107,7 +114,7 @@ int main() {
         C3D_FrameBegin(C3D_FRAME_SYNCDRAW);
 
         // Choisir le sheet à utiliser 
-        C2D_SpriteSheet currentSheet = facingRight ? sheetRight : sheetLeft;
+        // C2D_SpriteSheet currentSheet = facingRight ? sheetRight : sheetLeft;
 
         // L'image à utiliser 
 
@@ -119,7 +126,8 @@ int main() {
         // Dessin de l'oie Joueur (Rouge)
         for (Goose* gisa : gm.geese) {
             // C2D_DrawRectangle(gisa->x, gisa->y, 0.0f, gisa->w, gisa->h, C2D_Color32(255, 0, 0, 255), C2D_Color32(255, 0, 0, 255), C2D_Color32(255, 0, 0, 255), C2D_Color32(255, 0, 0, 255));
-            C2D_DrawImageAt(newImg, gisa->x, gisa->y, 0.9f, NULL, 1.0f, 1.0f);
+            // C2D_DrawImageAt(newImg, gisa->x, gisa->y, 0.9f, NULL, 1.0f, 1.0f);
+            aM.drawImage(sheetRight , walk, gisa->x , gisa->y);
         }
 
         // C2D_SceneBegin(bottom);
@@ -132,7 +140,7 @@ int main() {
         //     C2D_TargetClear(bottom, C2D_Color32(20, 20, 80, 255));
         // }
 
-        C3D_Fr0ameEnd(0);
+        C3D_FrameEnd(0);
     }
 
     // 5. Nettoyage de la mémoire avant de quitter
