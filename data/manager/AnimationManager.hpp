@@ -17,7 +17,7 @@ public:
         }
     }
 
-    void drawImage(C2D_SpriteSheet sheet , const Animation& anim,float x, float y) {
+    void drawImageWithAnimation(C2D_SpriteSheet sheet , const Animation& anim,float x, float y) {
         // Boucle pour enchainer les images 
         int spriteIndex = anim.startFrame + (frameCounter % anim.totalFrames);
 

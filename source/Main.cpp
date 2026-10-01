@@ -36,7 +36,7 @@ int main() {
     Animation attack;
     attack.totalFrames = 4;  
     attack.startFrame =1 ;  
-    attack.tickIncrementer = 4; 
+    attack.tickIncrementer = 8; 
 
     // Animation de marche 
     Animation walk;
@@ -67,6 +67,12 @@ int main() {
         // N'attaque pas 
         // bool isAttacking = false;
 
+        // Test venant des toilettes 
+
+        C3D_FrameBegin(C3D_FRAME_SYNCDRAW);
+        C2D_TargetClear(top, C2D_Color32(250, 89, 21, 255)); // Fond Orange
+        C2D_SceneBegin(top);
+
         if (kheld & KEY_DRIGHT) {
             goose->mooveRight();
             // isMooving = true;
@@ -85,7 +91,7 @@ int main() {
             goose->attack(); // Déclenche le déplacement de l'attaque
             // isAttacking = true;
             aM.updateAnimation(attack);
-            aM.drawImage(sheetAttackRight, attack, goose->x, goose->y);
+            aM.drawImageWithAnimation(sheetAttackRight, attack, goose->x, goose->y);
         }
         
         // --- B. UPDATE ---
@@ -111,7 +117,7 @@ int main() {
 
         // --- C. RENDU GRAPHIQUE ---
 
-        C3D_FrameBegin(C3D_FRAME_SYNCDRAW);
+        // C3D_FrameBegin(C3D_FRAME_SYNCDRAW);
 
         // Choisir le sheet à utiliser 
         // C2D_SpriteSheet currentSheet = facingRight ? sheetRight : sheetLeft;
@@ -120,15 +126,15 @@ int main() {
 
 
         // 1. ÉCRAN DU HAUT : Dessin des Oies
-        C2D_TargetClear(top, C2D_Color32(250, 89, 21, 255)); // Fond Orange
-        C2D_SceneBegin(top);
+        // C2D_TargetClear(top, C2D_Color32(250, 89, 21, 255)); // Fond Orange
+        // C2D_SceneBegin(top);
         
         // Dessin de l'oie Joueur (Rouge)
-        for (Goose* gisa : gm.geese) {
-            // C2D_DrawRectangle(gisa->x, gisa->y, 0.0f, gisa->w, gisa->h, C2D_Color32(255, 0, 0, 255), C2D_Color32(255, 0, 0, 255), C2D_Color32(255, 0, 0, 255), C2D_Color32(255, 0, 0, 255));
-            // C2D_DrawImageAt(newImg, gisa->x, gisa->y, 0.9f, NULL, 1.0f, 1.0f);
-            aM.drawImage(sheetRight , walk, gisa->x , gisa->y);
-        }
+        // for (Goose* gisa : gm.geese) {
+        //     // C2D_DrawRectangle(gisa->x, gisa->y, 0.0f, gisa->w, gisa->h, C2D_Color32(255, 0, 0, 255), C2D_Color32(255, 0, 0, 255), C2D_Color32(255, 0, 0, 255), C2D_Color32(255, 0, 0, 255));
+        //     // C2D_DrawImageAt(newImg, gisa->x, gisa->y, 0.9f, NULL, 1.0f, 1.0f);
+        //     aM.drawImage(sheetRight , walk, gisa->x , gisa->y);
+        // }
 
         // C2D_SceneBegin(bottom);
         // // 2. ÉCRAN DU BAS : Témoin visuel de Collision
