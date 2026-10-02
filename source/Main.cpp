@@ -77,6 +77,8 @@ int main() {
             goose->mooveRight();
             // isMooving = true;
             // facingRight = true;
+            aM.updateAnimation(walk);
+            aM.drawImageWithAnimation(sheetRight, walk, goose->x,goose->x);
         } else if (kheld & KEY_DLEFT) { 
             goose->mooveLeft();
             // isMooving = true;
