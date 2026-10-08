@@ -27,4 +27,9 @@ public:
         // Dessin de l'image 
         C2D_DrawImageAt(image, x, y, 0.9f, nullptr, 1.0f, 1.0f);
     }
+
+    void resetAnimation() {
+        frameCounter = 0;
+        tickTimer = 0;
+    }
 };
