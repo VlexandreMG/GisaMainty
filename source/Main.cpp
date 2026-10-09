@@ -62,7 +62,7 @@ int main() {
         if (kdown & KEY_START) break; // Quitter le jeu avec START
 
         // Ne bouge pas     
-        // bool isMooving = false;
+        bool isMooving = false;
 
         // N'attaque pas 
         // bool isAttacking = false;
@@ -75,10 +75,9 @@ int main() {
 
         if (kheld & KEY_DRIGHT) {
             goose->mooveRight();
-            // isMooving = true;
+            isMooving = true;
             // facingRight = true;
-            aM.updateAnimation(walk);
-            aM.drawImageWithAnimation(sheetRight, walk, goose->x,goose->x);
+            aM.fonctionTsisyAnarana(sheetRight,walk,isMooving,goose->x,goose->y);
         } else if (kheld & KEY_DLEFT) { 
             goose->mooveLeft();
             // isMooving = true;
@@ -92,8 +91,6 @@ int main() {
         if (kdown & KEY_A) {
             goose->attack(); // Déclenche le déplacement de l'attaque
             // isAttacking = true;
-            aM.updateAnimation(attack);
-            aM.drawImageWithAnimation(sheetAttackRight, attack, goose->x, goose->y);
         }
         
         // --- B. UPDATE ---

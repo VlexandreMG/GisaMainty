@@ -43,7 +43,7 @@ public:
         if (isMoved) {
             updateAnimation(anim);
             drawImageWithAnimation(sheet,anim,x,y);
-        } else (!isMoved) {
+        } else {
             resetAnimation();
             idleAnimation(sheet,x,y);
         }
