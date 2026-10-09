@@ -23,7 +23,7 @@ int main() {
     // Charger la feuille de sprite 
     C2D_SpriteSheet sheetRight = C2D_SpriteSheetLoad("romfs:/gfx/Goose-walk-right.t3x");
     C2D_SpriteSheet sheetLeft = C2D_SpriteSheetLoad("romfs:/gfx/Goose-walk-left.t3x");
-    C2D_SpriteSheet sheetAttackRight = C2D_SpriteSheetLoad("romfs:/gfx/Goose-attack-right.t3x");
+    // C2D_SpriteSheet sheetAttackRight = C2D_SpriteSheetLoad("romfs:/gfx/Goose-attack-right.t3x");
     
     //  ETO
 
@@ -33,16 +33,16 @@ int main() {
     // 
      
     // Animation d'attaque 
-    Animation attack;
-    attack.totalFrames = 4;  
-    attack.startFrame =1 ;  
-    attack.tickIncrementer = 8; 
+    // Animation attack;
+    // attack.totalFrames = 4;  
+    // attack.startFrame =1 ;  
+    // attack.tickIncrementer = 8; 
 
     // Animation de marche 
     Animation walk;
     walk.totalFrames = 4;  
     walk.startFrame =1 ;  
-    walk.tickIncrementer = 8; 
+    walk.tickIncrementer = 12; 
     
     // Animation Manager 
     AnimationManager aM;
