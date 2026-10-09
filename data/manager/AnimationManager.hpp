@@ -44,7 +44,6 @@ public:
             updateAnimation(anim);
             drawImageWithAnimation(sheet,anim,x,y);
         } else {
-            resetAnimation();
             idleAnimation(sheet,x,y);
         }
     }
