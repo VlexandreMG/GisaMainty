@@ -32,4 +32,13 @@ public:
         frameCounter = 0;
         tickTimer = 0;
     }
+
+    void fonctionTsisyAnarana(C2D_SpriteSheet sheet , const Animation& anim , bool isMoved, float x, float y) {
+        if (isMoved) {
+            updateAnimation(anim);
+            drawImageWithAnimation(sheet,anim,x,y);
+        } else (!isMoved) {
+            resetAnimation();
+        }
+    }
 };
