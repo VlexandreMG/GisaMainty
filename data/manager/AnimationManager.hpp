@@ -17,6 +17,17 @@ public:
         }
     }
 
+    void resetAnimation() {
+        frameCounter = 0;
+        tickTimer = 0;
+    }
+
+    void idleAnimation(C2D_SpriteSheet sheet, float x , float y) {
+        resetAnimation();
+        C2D_Image image = C2D_SpriteSheetGetImage(sheet, frameCounter);
+        C2D_DrawImageAt(image, x, y, 0.9f, nullptr, 1.0f, 1.0f);
+    }
+
     void drawImageWithAnimation(C2D_SpriteSheet sheet , const Animation& anim,float x, float y) {
         // Boucle pour enchainer les images 
         int spriteIndex = anim.startFrame + (frameCounter % anim.totalFrames);
@@ -28,17 +39,13 @@ public:
         C2D_DrawImageAt(image, x, y, 0.9f, nullptr, 1.0f, 1.0f);
     }
 
-    void resetAnimation() {
-        frameCounter = 0;
-        tickTimer = 0;
-    }
-
     void fonctionTsisyAnarana(C2D_SpriteSheet sheet , const Animation& anim , bool isMoved, float x, float y) {
         if (isMoved) {
             updateAnimation(anim);
             drawImageWithAnimation(sheet,anim,x,y);
         } else (!isMoved) {
             resetAnimation();
+            idleAnimation(sheet,x,y);
         }
     }
 };
