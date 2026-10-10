@@ -55,7 +55,7 @@ int main() {
     Goose* other = gm.spawnGoose(200.0f, 120.0f);
     
     // Ne bouge pas 
-    bool isMoooving = aM.gooseIsMooving(goose);
+    bool isMooving = aM.gooseIsMooving(goose);
 
     // 4. Boucle Principale de Jeu (Gameloop)
     while (aptMainLoop()) {
@@ -67,11 +67,9 @@ int main() {
 
         if (kheld & KEY_DRIGHT) {
             goose->mooveRight();
-            isMooving = true;
             facingRight = true;
         } else if (kheld & KEY_DLEFT) { 
             goose->mooveLeft();
-            isMooving = true;
             facingRight = false;
         }   
         
