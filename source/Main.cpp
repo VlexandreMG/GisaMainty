@@ -28,9 +28,10 @@ int main() {
     //  ETO
 
     // De la droite ou de la gauche 
-        // bool facingRight = true;
+        bool facingRight = true;
 
-    // 
+    // Ne bouge pas     
+        bool isMooving = false;
      
     // Animation d'attaque 
     // Animation attack;
@@ -61,8 +62,6 @@ int main() {
         u32 kheld = hidKeysHeld();
         if (kdown & KEY_START) break; // Quitter le jeu avec START
 
-        // Ne bouge pas     
-        bool isMooving = false;
 
         // N'attaque pas 
         // bool isAttacking = false;
