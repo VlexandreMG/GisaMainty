@@ -29,10 +29,12 @@ public:
 
     void mooveRight() {
         x += rightForce;
+        vx++;
     }
 
     void mooveLeft() {
         x -= rightForce;
+        vx--;
     }
 
     void fly() {
