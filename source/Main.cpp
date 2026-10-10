@@ -62,16 +62,6 @@ int main() {
         u32 kheld = hidKeysHeld();
         if (kdown & KEY_START) break; // Quitter le jeu avec START
 
-
-        // N'attaque pas 
-        // bool isAttacking = false;
-
-        // Test venant des toilettes 
-
-        C3D_FrameBegin(C3D_FRAME_SYNCDRAW);
-        C2D_TargetClear(top, C2D_Color32(250, 89, 21, 255)); // Fond Orange
-        C2D_SceneBegin(top);
-
         if (kheld & KEY_DRIGHT) {
             goose->mooveRight();
             isMooving = true;
@@ -99,50 +89,14 @@ int main() {
         goose->leftBound();
         goose->upBound();
         
-        // ETO
-        
-        
-        // 
-        
-        // printf("\x1b[1;1H"); // Replace le curseur en haut à gauche
-        // printf("=== DEBUG GOOSE JETPACK ===\n\n");
-        // printf("Position Y   : %f\n", goose->y);
-        // printf("Vitesse VY   : %f\n", goose->vy);
-        // printf("Gaz Restant  : %f\n", goose->gas);
-        // printf("isGrounded   : %s\n", goose->isGrounded ? "TRUE " : "FALSE");
-        // printf("Bouton B     : %s\n", (kheld & KEY_B) ? "APPUYE " : "RELACHE");
-        
         // --- C. RENDU GRAPHIQUE ---
+        C3D_FrameBegin(C3D_FRAME_SYNCDRAW);
+        C2D_TargetClear(top, C2D_Color32(250, 89, 21, 255)); // Fond Orange
+        C2D_SceneBegin(top);
         
-        // C3D_FrameBegin(C3D_FRAME_SYNCDRAW);
-        
-        // Choisir le sheet à utiliser 
-        // C2D_SpriteSheet currentSheet = facingRight ? sheetRight : sheetLeft;
-        
-        // L'image à utiliser 
-        
-        
-        // 1. ÉCRAN DU HAUT : Dessin des Oies
-        // C2D_TargetClear(top, C2D_Color32(250, 89, 21, 255)); // Fond Orange
-        // C2D_SceneBegin(top);
-        
-        // Dessin de l'oie Joueur (Rouge)
-        // for (Goose* gisa : gm.geese) {
-            //     // C2D_DrawRectangle(gisa->x, gisa->y, 0.0f, gisa->w, gisa->h, C2D_Color32(255, 0, 0, 255), C2D_Color32(255, 0, 0, 255), C2D_Color32(255, 0, 0, 255), C2D_Color32(255, 0, 0, 255));
-            //     // C2D_DrawImageAt(newImg, gisa->x, gisa->y, 0.9f, NULL, 1.0f, 1.0f);
-        //     aM.drawImageWithAnimation(sheetRight , walk, gisa->x , gisa->y);
-        // }
+        C2D_SpriteSheet currentSheet = facingRight ? sheetRight : sheetLeft;
 
-        aM.fonctionTsisyAnarana(sheetRight,walk,isMooving,goose->x,goose->y);
-        // C2D_SceneBegin(bottom);
-        // // 2. ÉCRAN DU BAS : Témoin visuel de Collision
-        // if (other.health != 3) {
-        //     // COLLISION ! L'écran du bas s'allume en BLANC
-        //     C2D_TargetClear(bottom, C2D_Color32(255, 255, 255, 255));
-        // } else {
-        //     // Pas de collision : L'écran du bas reste BLEU FONCÉ
-        //     C2D_TargetClear(bottom, C2D_Color32(20, 20, 80, 255));
-        // }
+        aM.fonctionTsisyAnarana(currentSheet,walk,isMooving,goose->x,goose->y);
 
         C3D_FrameEnd(0);
     }
