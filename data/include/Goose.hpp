@@ -7,6 +7,7 @@ public:
     float w = 15.0f;
     float h = 15.0f;
     float vy = 2.0f;
+    float vx = 0.0f;
     float flyForce = 3.0f;
     float rightForce = 1.0f;
     float leftForce = 1.0f;

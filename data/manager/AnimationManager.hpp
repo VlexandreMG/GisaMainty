@@ -1,4 +1,5 @@
 #include "../include/Animation.hh"
+#include "../include/Goose.hpp"
 #include <citro2d.h>
 
 class AnimationManager {
@@ -46,5 +47,9 @@ public:
         } else {
             idleAnimation(sheet,x,y);
         }
+    }
+
+    bool gooseIsMooving(const Goose& goo) {
+        if (goo.vx >= 0) return true;
     }
 };
