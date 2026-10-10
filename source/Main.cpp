@@ -31,7 +31,7 @@ int main() {
         bool facingRight = true;
 
     // Ne bouge pas     
-        bool isMooving;
+
      
     // Animation d'attaque 
     // Animation attack;
@@ -47,13 +47,16 @@ int main() {
     
     // Animation Manager 
     AnimationManager aM;
-
+    
     // 3. Création des deux oies
     GooseManager gm;
     System system;
     Goose* goose = gm.spawnGoose(180.0f, 100.0f);
     Goose* other = gm.spawnGoose(200.0f, 120.0f);
     
+    // Ne bouge pas 
+    bool isMoooving = aM.gooseIsMooving(goose);
+
     // 4. Boucle Principale de Jeu (Gameloop)
     while (aptMainLoop()) {
         // --- A. INPUTS ---

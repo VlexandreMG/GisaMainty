@@ -49,7 +49,10 @@ public:
         }
     }
 
-    bool gooseIsMooving(const Goose& goo) {
-        if (goo.vx >= 0) return true;
+    bool gooseIsMooving(const Goose* goo) {
+        if (goo->vx >= 0) {
+            return true;
+        }
+        return false;
     }
 };
