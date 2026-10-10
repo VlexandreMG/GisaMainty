@@ -31,7 +31,7 @@ int main() {
         bool facingRight = true;
 
     // Ne bouge pas     
-        bool isMooving = false;
+        bool isMooving;
      
     // Animation d'attaque 
     // Animation attack;
@@ -43,7 +43,7 @@ int main() {
     Animation walk;
     walk.totalFrames = 4;  
     walk.startFrame =1 ;  
-    walk.tickIncrementer = 12; 
+    walk.tickIncrementer = 8; 
     
     // Animation Manager 
     AnimationManager aM;
