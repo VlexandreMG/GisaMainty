@@ -54,9 +54,6 @@ int main() {
     Goose* goose = gm.spawnGoose(180.0f, 100.0f);
     Goose* other = gm.spawnGoose(200.0f, 120.0f);
     
-    // Ne bouge pas 
-    bool isMooving = aM.gooseIsMooving(goose);
-
     // 4. Boucle Principale de Jeu (Gameloop)
     while (aptMainLoop()) {
         // --- A. INPUTS ---
@@ -81,7 +78,10 @@ int main() {
             goose->attack(); // Déclenche le déplacement de l'attaque
             // isAttacking = true;
         }
-        
+    
+        // Ne bouge pas 
+        bool isMooving = aM.gooseIsMooving(kheld);
+
         // --- B. UPDATE ---
         system.applyPhysics(gm.geese);
         gm.updateAll();
