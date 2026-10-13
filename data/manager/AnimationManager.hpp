@@ -1,6 +1,7 @@
 #include "../include/Animation.hh"
 #include "../include/Goose.hpp"
 #include <citro2d.h>
+#include <3ds.h>
 
 class AnimationManager {
 public:
@@ -49,10 +50,7 @@ public:
         }
     }
 
-    bool gooseIsMooving(const Goose* goo) {
-        if (goo->vx >= 0) {
-            return true;
-        }
-        return false;
+    bool gooseIsMooving(u32 kheld) {
+        return (kheld & KEY_DRIGHT || kheld & KEY_DLEFT);
     }
 };
