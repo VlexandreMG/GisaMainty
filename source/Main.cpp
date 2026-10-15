@@ -37,7 +37,7 @@ int main() {
     Animation attack;
     attack.totalFrames = 4;  
     attack.startFrame =0 ;  
-    attack.tickIncrementer = 8; 
+    attack.tickIncrementer = 10; 
 
     // Animation de marche 
     Animation walk;
@@ -118,6 +118,7 @@ int main() {
     gm.clear();
     C2D_SpriteSheetFree(sheetLeft);
     C2D_SpriteSheetFree(sheetRight);
+    C2D_SpriteSheetFree(sheetAttackRight);
     romfsExit();
     C2D_Fini();
     C3D_Fini();
