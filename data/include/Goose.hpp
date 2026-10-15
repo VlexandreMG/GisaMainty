@@ -17,6 +17,7 @@ public:
     int hitFrameLeft = 0;
     int attackFrameLeft = 0;
     int health = 3;
+    bool facingRight = false;
     bool isAttacking = false;
     bool hasHitTarget = false;
     bool isGrounded = false;
