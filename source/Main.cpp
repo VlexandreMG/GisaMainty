@@ -23,7 +23,7 @@ int main() {
     // Charger la feuille de sprite 
     C2D_SpriteSheet sheetRight = C2D_SpriteSheetLoad("romfs:/gfx/Goose-walk-right.t3x");
     C2D_SpriteSheet sheetLeft = C2D_SpriteSheetLoad("romfs:/gfx/Goose-walk-left.t3x");
-    // C2D_SpriteSheet sheetAttackRight = C2D_SpriteSheetLoad("romfs:/gfx/Goose-attack-right.t3x");
+    C2D_SpriteSheet sheetAttackRight = C2D_SpriteSheetLoad("romfs:/gfx/Goose-attack-right.t3x");
     
     //  ETO
 
@@ -34,10 +34,10 @@ int main() {
 
      
     // Animation d'attaque 
-    // Animation attack;
-    // attack.totalFrames = 4;  
-    // attack.startFrame =1 ;  
-    // attack.tickIncrementer = 8; 
+    Animation attack;
+    attack.totalFrames = 4;  
+    attack.startFrame =0 ;  
+    attack.tickIncrementer = 8; 
 
     // Animation de marche 
     Animation walk;
@@ -95,9 +95,21 @@ int main() {
         C2D_TargetClear(top, C2D_Color32(250, 89, 21, 255)); // Fond Orange
         C2D_SceneBegin(top);
         
-        C2D_SpriteSheet currentSheet = facingRight ? sheetRight : sheetLeft;
+        C2D_SpriteSheet currentSheet;
+        Animation currentAnim;
 
-        aM.fonctionTsisyAnarana(currentSheet,walk,isMooving,goose->x,goose->y);
+        if (goose->isAttacking) {
+            currentSheet = sheetAttackRight;
+            currentAnim = attack;
+
+            aM.fonctionTsisyAnarana(currentSheet,walk,isMooving,goose->x,goose->y);
+        } else {
+            currentSheet = facingRight ? sheetRight : sheetLeft;
+            currentAnim = walk;
+            aM.fonctionTsisyAnarana(currentSheet,walk,isMooving,goose->x,goose->y);
+        }
+
+
 
         C3D_FrameEnd(0);
     }
