@@ -42,7 +42,7 @@ int main() {
     // Animation de marche 
     Animation walk;
     walk.totalFrames = 4;  
-    walk.startFrame =1 ;  
+    walk.startFrame =0 ;  
     walk.tickIncrementer = 8; 
     
     // Animation Manager 
