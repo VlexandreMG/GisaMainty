@@ -22,14 +22,6 @@ public:
     bool hasHitTarget = false;
     bool isGrounded = false;
 
-    void horizontalStates() {
-        if (vx > 0) {
-            facingRight = true;  // L'oie va / regarde vers la droite
-        } else if (vx < 0) {
-            facingRight = false; // L'oie va / regarde vers la gauche
-        }
-    }
-
     void takeHit(float direction) {
         health--;
         angle = 1.0f * direction;

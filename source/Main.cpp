@@ -62,10 +62,10 @@ int main() {
 
         if (kheld & KEY_DRIGHT) {
             goose->mooveRight();
-            goose->horizontalStates();
+            goose->facingRight = true;
         } else if (kheld & KEY_DLEFT) { 
             goose->mooveLeft();
-            goose->horizontalStates();
+            goose->facingRight = false;
         }   
         
         if (kheld & KEY_B) {
