@@ -17,10 +17,18 @@ public:
     int hitFrameLeft = 0;
     int attackFrameLeft = 0;
     int health = 3;
-    bool facingRight = false;
+    bool facingRight = true;
     bool isAttacking = false;
     bool hasHitTarget = false;
     bool isGrounded = false;
+
+    void horizontalStates() {
+        if (vx > 0) {
+            facingRight = true;  // L'oie va / regarde vers la droite
+        } else if (vx < 0) {
+            facingRight = false; // L'oie va / regarde vers la gauche
+        }
+    }
 
     void takeHit(float direction) {
         health--;
