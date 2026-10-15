@@ -117,6 +117,7 @@ int main() {
     C2D_SpriteSheetFree(sheetLeft);
     C2D_SpriteSheetFree(sheetRight);
     C2D_SpriteSheetFree(sheetAttackRight);
+    C2D_SpriteSheetFree(sheetAttackLeft);
     romfsExit();
     C2D_Fini();
     C3D_Fini();
