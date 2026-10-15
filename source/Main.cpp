@@ -28,9 +28,6 @@ int main() {
     
     //  ETO
 
-    // De la droite ou de la gauche 
-        bool facingRight = true;
-
     // Ne bouge pas     
 
      
@@ -65,10 +62,10 @@ int main() {
 
         if (kheld & KEY_DRIGHT) {
             goose->mooveRight();
-            facingRight = true;
+            goose->horizontalStates();
         } else if (kheld & KEY_DLEFT) { 
             goose->mooveLeft();
-            facingRight = false;
+            goose->horizontalStates();
         }   
         
         if (kheld & KEY_B) {
@@ -100,12 +97,12 @@ int main() {
         Animation currentAnim;
 
         if (goose->isAttacking) {
-            currentSheet = facingRight ? sheetAttackRight : sheetAttackLeft;
+            currentSheet = goose->facingRight ? sheetAttackRight : sheetAttackLeft;
             currentAnim = attack;
 
             aM.fonctionTsisyAnarana(currentSheet,currentAnim,isMooving,goose->x,goose->y);
         } else {
-            currentSheet = facingRight ? sheetRight : sheetLeft;
+            currentSheet = goose->facingRight ? sheetRight : sheetLeft;
             currentAnim = walk;
             aM.fonctionTsisyAnarana(currentSheet,currentAnim,isMooving,goose->x,goose->y);
         }
