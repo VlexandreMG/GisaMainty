@@ -102,11 +102,11 @@ int main() {
             currentSheet = sheetAttackRight;
             currentAnim = attack;
 
-            aM.fonctionTsisyAnarana(currentSheet,walk,isMooving,goose->x,goose->y);
+            aM.fonctionTsisyAnarana(currentSheet,currentAnim,isMooving,goose->x,goose->y);
         } else {
             currentSheet = facingRight ? sheetRight : sheetLeft;
             currentAnim = walk;
-            aM.fonctionTsisyAnarana(currentSheet,walk,isMooving,goose->x,goose->y);
+            aM.fonctionTsisyAnarana(currentSheet,currentAnim,isMooving,goose->x,goose->y);
         }
 
 
