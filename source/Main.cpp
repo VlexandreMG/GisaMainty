@@ -100,7 +100,7 @@ int main() {
         Animation currentAnim;
 
         if (goose->isAttacking) {
-            currentSheet = sheetAttackRight;
+            currentSheet = facingRight ? sheetAttackRight : sheetAttackLeft;
             currentAnim = attack;
 
             aM.fonctionTsisyAnarana(currentSheet,currentAnim,isMooving,goose->x,goose->y);
