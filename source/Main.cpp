@@ -24,6 +24,7 @@ int main() {
     C2D_SpriteSheet sheetRight = C2D_SpriteSheetLoad("romfs:/gfx/Goose-walk-right.t3x");
     C2D_SpriteSheet sheetLeft = C2D_SpriteSheetLoad("romfs:/gfx/Goose-walk-left.t3x");
     C2D_SpriteSheet sheetAttackRight = C2D_SpriteSheetLoad("romfs:/gfx/Goose-attack-right.t3x");
+    C2D_SpriteSheet sheetAttackLeft = C2D_SpriteSheetLoad("romfs:/gfx/Goose-attack-left.t3x");
     
     //  ETO
 
