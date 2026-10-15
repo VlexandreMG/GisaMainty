@@ -97,8 +97,11 @@ public:
     }
 
     void update() {
-        if (attackFrameLeft > 0) {
+        if (attackFrameLeft > 0 && facingRight) {
             x += 1.0f;
+            attackFrameLeft--;
+        } else if (attackFrameLeft > 0 && facingRight) {
+            x -= 1.0f;
             attackFrameLeft--;
         } else {
             isAttacking = false;
