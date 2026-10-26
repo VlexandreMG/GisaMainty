@@ -44,6 +44,12 @@ int main() {
     walk.startFrame =0 ;  
     walk.tickIncrementer = 8; 
     
+    // Animation de vol 
+    Animation fly;
+    fly.totalFrames = 3;  
+    fly.startFrame =0 ;  
+    fly.tickIncrementer = 8; 
+
     // Animation Manager 
     AnimationManager aM;
     
