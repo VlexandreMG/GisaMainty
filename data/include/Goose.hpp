@@ -21,6 +21,7 @@ public:
     bool isAttacking = false;
     bool hasHitTarget = false;
     bool isGrounded = false;
+    bool isFlying = false;
 
     void takeHit(float direction) {
         health--;
@@ -43,6 +44,7 @@ public:
             vy -= flyForce;
             gas -= 0.2f;
             isGrounded = false;
+            isFlying = true;
         }
     }
 
