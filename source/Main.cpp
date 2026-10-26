@@ -25,7 +25,8 @@ int main() {
     C2D_SpriteSheet sheetLeft = C2D_SpriteSheetLoad("romfs:/gfx/Goose-walk-left.t3x");
     C2D_SpriteSheet sheetAttackRight = C2D_SpriteSheetLoad("romfs:/gfx/Goose-attack-right.t3x");
     C2D_SpriteSheet sheetAttackLeft = C2D_SpriteSheetLoad("romfs:/gfx/Goose-attack-left.t3x");
-    
+    C2D_SpriteSheet sheetFlyRight = C2D_SpriteSheetLoad("romfs:/gfx/Goose-fly-right.t3x");
+
     //  ETO
 
     // Ne bouge pas     
@@ -118,6 +119,7 @@ int main() {
     C2D_SpriteSheetFree(sheetRight);
     C2D_SpriteSheetFree(sheetAttackRight);
     C2D_SpriteSheetFree(sheetAttackLeft);
+    C2D_SpriteSheetFree(sheetFlyRight);
     romfsExit();
     C2D_Fini();
     C3D_Fini();
