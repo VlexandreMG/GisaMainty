@@ -79,6 +79,7 @@ int main() {
             goose->fly();
         }
         
+        
         if (kdown & KEY_A) {
             goose->attack(); // Déclenche le déplacement de l'attaque
             // isAttacking = true;
@@ -117,9 +118,6 @@ int main() {
             currentAnim = walk;
             aM.fonctionTsisyAnarana(currentSheet,currentAnim,isMooving,goose->x,goose->y);
         }
-
-
-
         C3D_FrameEnd(0);
     }
 
