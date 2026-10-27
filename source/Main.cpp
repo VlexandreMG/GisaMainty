@@ -108,6 +108,10 @@ int main() {
             currentAnim = attack;
 
             aM.fonctionTsisyAnarana(currentSheet,currentAnim,isMooving,goose->x,goose->y);
+        } else if (goose->isFlying) {
+            currentSheet = sheetFlyRight;
+            currentAnim = fly;
+            aM.fonctionTsisyAnarana(currentSheet,currentAnim,isMooving,goose->x,goose->y);
         } else {
             currentSheet = goose->facingRight ? sheetRight : sheetLeft;
             currentAnim = walk;
