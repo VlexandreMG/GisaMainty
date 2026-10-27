@@ -48,6 +48,10 @@ public:
         }
     }
 
+    void reset() {
+        isFlying = false;
+    }
+
     void reload() {
         if (isGrounded) {
             gas = maxGas;
