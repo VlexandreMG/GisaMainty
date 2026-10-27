@@ -77,6 +77,8 @@ int main() {
         
         if (kheld & KEY_B) {
             goose->fly();
+        } else {
+            goose->reset();
         }
         
         
