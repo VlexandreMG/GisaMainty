@@ -58,8 +58,10 @@ public:
     bool gooseIsFlying(u32 kheld , Goose& g) {
         if (kheld & KEY_B) {
             if (g.gas != 0) {
+                g.isFlying = true;
                 return true;
             } else if ((g.gas == 0) && g.isGrounded == true) {
+                g.isFlying = false;
                 return false;
             }
         }
