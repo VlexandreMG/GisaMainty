@@ -7,6 +7,7 @@ class AnimationManager {
 public:
     int frameCounter = 0;
     int tickTimer = 0;
+    Goose goose;
 
     AnimationManager() : frameCounter(0), tickTimer(0) {}
 
@@ -54,7 +55,13 @@ public:
         return (kheld & KEY_DRIGHT || kheld & KEY_DLEFT);
     }
 
-    bool gooseIsFlying(u32 kheld) {
-        
+    bool gooseIsFlying(u32 kheld , Goose& g) {
+        if (kheld & KEY_B) {
+            if (g.gas != 0) {
+                return true;
+            } else if ((g.gas == 0) && g.isGrounded == true) {
+                return false;
+            }
+        }
     }
 };
