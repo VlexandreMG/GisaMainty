@@ -52,7 +52,7 @@ int main() {
 
     // Animation Manager 
     AnimationManager aM;
-    
+
     // 3. Création des deux oies
     GooseManager gm;
     System system;
@@ -89,6 +89,7 @@ int main() {
     
         // Ne bouge pas 
         bool isMooving = aM.gooseIsMooving(kheld);
+        bool isFlying = aM.gooseIsFlying(kheld,*goose);
 
         // --- B. UPDATE ---
         system.applyPhysics(gm.geese);
@@ -111,7 +112,7 @@ int main() {
             currentAnim = attack;
 
             aM.fonctionTsisyAnarana(currentSheet,currentAnim,isMooving,goose->x,goose->y);
-        } else if (goose->isFlying) {
+        } else if (isFlying) {
             currentSheet = sheetFlyRight;
             currentAnim = fly;
             aM.fonctionTsisyAnarana(currentSheet,currentAnim,isMooving,goose->x,goose->y);
