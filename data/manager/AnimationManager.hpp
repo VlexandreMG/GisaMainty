@@ -53,4 +53,8 @@ public:
     bool gooseIsMooving(u32 kheld) {
         return (kheld & KEY_DRIGHT || kheld & KEY_DLEFT);
     }
+
+    bool gooseIsFlying(u32 kheld) {
+        
+    }
 };
