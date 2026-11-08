@@ -31,6 +31,18 @@ public:
         C2D_DrawImageAt(image, x, y, 0.9f, nullptr, 1.0f, 1.0f);
     }
 
+    C2D_DrawParams defineParams(float x , float y , float angle) {
+        C2D_DrawParams params;
+        memset(&params, 0, sizeof(params));
+        params.pos.x = x;
+        params.pos.y = y;
+        params.angle = angle;       // On applique l'angle ici aussi !
+        params.center.x = 0.5f;
+        params.center.y = 0.5f;
+
+        return params;
+    }
+
     void drawImageWithAnimation(C2D_SpriteSheet sheet , const Animation& anim,float x, float y) {
         // Boucle pour enchainer les images 
         int spriteIndex = anim.startFrame + (frameCounter % anim.totalFrames);
