@@ -31,7 +31,7 @@ public:
         C2D_DrawImageAt(image, x, y, 0.9f, nullptr, 1.0f, 1.0f);
     }
 
-    C2D_DrawParams* defineParams(float x , float y , float angle) {
+    C2D_DrawParams defineParams(float x , float y , float angle) {
         C2D_DrawParams params;
         memset(&params, 0, sizeof(params));
         params.pos.x = x;
@@ -40,7 +40,7 @@ public:
         params.center.x = 0.5f;
         params.center.y = 0.5f;
 
-        return params*;
+        return params;
     }
 
     void drawImageWithAnimation(C2D_SpriteSheet sheet , const Animation& anim,float x, float y, float angle) {
@@ -51,10 +51,10 @@ public:
         C2D_Image image = C2D_SpriteSheetGetImage(sheet, spriteIndex);
 
         // Definis les paramètres de l'image 
-        C2D_DrawParams* params = defineParams(x,y,angle);
+        C2D_DrawParams params = defineParams(x,y,angle);
 
         // Dessin de l'image 
-        C2D_DrawImage(image,params);
+        C2D_DrawImage(image,&params);
     }
 
     void fonctionTsisyAnarana(C2D_SpriteSheet sheet , const Animation& anim , bool isMoved, float x, float y ,float angle) {

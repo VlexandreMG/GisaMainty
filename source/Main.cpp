@@ -111,15 +111,15 @@ int main() {
             currentSheet = goose->facingRight ? sheetAttackRight : sheetAttackLeft;
             currentAnim = attack;
 
-            aM.fonctionTsisyAnarana(currentSheet,currentAnim,isMooving,goose->x,goose->y);
+            aM.fonctionTsisyAnarana(currentSheet,currentAnim,isMooving,goose->x,goose->y,goose->angle);
         } else if (isFlying) {
             currentSheet = sheetFlyRight;
             currentAnim = fly;
-            aM.fonctionTsisyAnarana(currentSheet,currentAnim,isMooving,goose->x,goose->y);
+            aM.fonctionTsisyAnarana(currentSheet,currentAnim,isMooving,goose->x,goose->y,goose->angle);
         } else {
             currentSheet = goose->facingRight ? sheetRight : sheetLeft;
             currentAnim = walk;
-            aM.fonctionTsisyAnarana(currentSheet,currentAnim,isMooving,goose->x,goose->y);
+            aM.fonctionTsisyAnarana(currentSheet,currentAnim,isMooving,goose->x,goose->y,goose->angle);
         }
         C3D_FrameEnd(0);
     }
