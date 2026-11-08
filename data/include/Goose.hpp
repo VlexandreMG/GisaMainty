@@ -95,7 +95,7 @@ public:
         }
     }
 
-    float tiltAngle() {
+    void tiltAngle() {
         float targetAngle = 0;
         if ((hidKeysHeld() & KEY_B) && (gas > 0)) {
             if (vx > 0.1f) {
@@ -105,7 +105,6 @@ public:
             }
             angle += (targetAngle - angle) * 0.2f;
         }
-        return angle;
     }
 
     void update() {
@@ -126,7 +125,7 @@ public:
             }
         }
 
-        angle = tiltAngle();        
+        tiltAngle();        
     }
 
     void rightBound() {
