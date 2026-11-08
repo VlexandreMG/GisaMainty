@@ -100,8 +100,8 @@ public:
         if ((hidKeysHeld() & KEY_B) && (gas > 0)) {
             if (vx > 0.1f) {
                 targetAngle = 0.15f;
-            } else if (vx < 0.1f) {
-                targetAngle = 0.15f;
+            } else if (vx < -0.1f) {
+                targetAngle = -0.15f;
             }
             angle += (targetAngle - angle) * 0.2f;
         }
