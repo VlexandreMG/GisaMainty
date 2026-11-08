@@ -1,4 +1,5 @@
 #pragma once 
+#include <3ds.h>
 
 class Goose {
 public:
@@ -111,6 +112,21 @@ public:
                 angle = 0;
             }
         }
+
+
+    }
+
+    float tiltAngle(u32 kheld) {
+        float targetAngle = 0;
+        if ((kheld & KEY_B) && (gas > 0)) {
+            if (vx > 0.1f) {
+                targetAngle = 0.15f;
+            } else if (vx < 0.1f) {
+                targetAngle = 0.15f;
+            }
+            angle += (targetAngle - angle) * 0.2f;
+        }
+        return angle;
     }
 
     void rightBound() {
