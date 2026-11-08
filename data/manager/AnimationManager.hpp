@@ -25,10 +25,12 @@ public:
         tickTimer = 0;
     }
 
-    void idleAnimation(C2D_SpriteSheet sheet, float x , float y) {
+    void idleAnimation(C2D_SpriteSheet sheet, float x , float y, float angle) {
         resetAnimation();
         C2D_Image image = C2D_SpriteSheetGetImage(sheet, frameCounter);
-        C2D_DrawImageAt(image, x, y, 0.9f, nullptr, 1.0f, 1.0f);
+        
+        C2D_DrawParams params = defineParams(x, y, angle);
+        C2D_DrawImage(image, &params);
     }
 
     C2D_DrawParams defineParams(float x , float y , float angle) {
@@ -39,6 +41,7 @@ public:
         params.angle = angle;       // On applique l'angle ici aussi !
         params.center.x = 0.5f;
         params.center.y = 0.5f;
+        params.depth = 0.9f;
 
         return params;
     }
@@ -62,7 +65,7 @@ public:
             updateAnimation(anim);
             drawImageWithAnimation(sheet,anim,x,y,angle);
         } else {
-            idleAnimation(sheet,x,y);
+            idleAnimation(sheet,x,y,angle);
         }
     }
 
