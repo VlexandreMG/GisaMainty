@@ -29,22 +29,32 @@ public:
         resetAnimation();
         C2D_Image image = C2D_SpriteSheetGetImage(sheet, frameCounter);
         
-        C2D_DrawParams params = defineParams(x, y, angle);
+        C2D_DrawParams params = defineParams(image,x, y, angle);
         C2D_DrawImage(image, &params);
     }
 
-    C2D_DrawParams defineParams(float x , float y , float angle) {
-        C2D_DrawParams params;
-        memset(&params, 0, sizeof(params));
-        params.pos.x = x;
-        params.pos.y = y;
-        params.angle = angle;       // On applique l'angle ici aussi !
-        params.center.x = 0.5f;
-        params.center.y = 0.5f;
-        params.depth = 0.9f;
+    C2D_DrawParams defineParams(C2D_Image image, float x, float y, float angle) {
+    C2D_DrawParams params;
+    memset(&params, 0, sizeof(params));
 
-        return params;
-    }
+    // Taille réelle de l'image (avant, elle restait à 0 → oie invisible)
+    params.pos.w = image.subtex->width;
+    params.pos.h = image.subtex->height;
+
+    // Centre de rotation en PIXELS : le milieu de l'oie
+    params.center.x = params.pos.w / 2.0f;
+    params.center.y = params.pos.h / 2.0f;
+
+    // pos = point de rotation → on décale pour que (x, y) reste le coin haut-gauche
+    params.pos.x = x + params.center.x;
+    params.pos.y = y + params.center.y;
+
+    params.angle = angle;
+    params.depth = 0.9f;
+
+    return params;
+}
+
 
     void drawImageWithAnimation(C2D_SpriteSheet sheet , const Animation& anim,float x, float y, float angle) {
         // Boucle pour enchainer les images 
@@ -54,7 +64,7 @@ public:
         C2D_Image image = C2D_SpriteSheetGetImage(sheet, spriteIndex);
 
         // Definis les paramètres de l'image 
-        C2D_DrawParams params = defineParams(x,y,angle);
+        C2D_DrawParams params = defineParams(image,x,y,angle);
 
         // Dessin de l'image 
         C2D_DrawImage(image,&params);
