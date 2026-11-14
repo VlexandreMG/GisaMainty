@@ -32,12 +32,12 @@ public:
 
     void mooveRight() {
         x += rightForce;
-        vx++;
+        vx = 1.0f;
     }
 
     void mooveLeft() {
         x -= rightForce;
-        vx--;
+        vx = -1.0f;
     }
 
     void fly() {
