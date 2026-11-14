@@ -13,7 +13,7 @@ public:
     float rightForce = 1.0f;
     float leftForce = 1.0f;
     float gas = 2.0f;
-    float maxGas = 2.0f;
+    float maxGas = 100.0f;
     float angle = 0.0f;
     int hitFrameLeft = 0;
     int attackFrameLeft = 0;
@@ -103,7 +103,7 @@ public:
             } else if (vx < -0.1f) {
                 targetAngle = -0.15f;
             }
-            angle += (targetAngle - angle) * 0.2f;
+            angle += (targetAngle - angle) * 0.4f;
         }
     }
 
