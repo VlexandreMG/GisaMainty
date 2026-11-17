@@ -12,8 +12,8 @@ public:
     float flyForce = 3.0f;
     float rightForce = 1.0f;
     float leftForce = 1.0f;
-    float gas = 2.0f;
-    float maxGas = 100.0f;
+    float gas = 0.5f;
+    float maxGas = 10.0f;
     float angle = 0.0f;
     int hitFrameLeft = 0;
     int attackFrameLeft = 0;
