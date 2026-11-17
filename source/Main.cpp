@@ -73,6 +73,8 @@ int main() {
         } else if (kheld & KEY_DLEFT) { 
             goose->mooveLeft();
             goose->facingRight = false;
+        } else {
+            goose->vx = 0;
         }   
         
         if (kheld & KEY_B) {
