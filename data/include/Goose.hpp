@@ -97,7 +97,7 @@ public:
 
     void tiltAngle() {
         float targetAngle = 0;
-        if ((hidKeysHeld() & KEY_B) && (gas > 0)) {
+        if ((hidKeysHeld() & KEY_B) && !isGrounded) {
             if (vx > 0.1f) {
                 targetAngle = 0.15f;
             } else if (vx < -0.1f) {
